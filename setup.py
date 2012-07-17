@@ -20,9 +20,13 @@ setup(name='sinar.representatives',
           'setuptools',
 	  'Plone',
 	  'plone.app.dexterity',
+      'collective.dexteritytextindexer',
+      'collective.dexteritydif',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
       # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )
