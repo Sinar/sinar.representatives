@@ -20,8 +20,11 @@ setup(name='sinar.representatives',
           'setuptools',
 	  'Plone',
 	  'plone.app.dexterity',
+      'plone.namedfile[blobs]',
+      'plone.formwidget.namedfile',
       'collective.dexteritytextindexer',
-      'collective.dexteritydif',
+      'collective.dexteritydiff',
+      'collective.z3cform.widgets',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
