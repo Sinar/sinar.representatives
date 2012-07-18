@@ -105,7 +105,7 @@ class IRepresentative(form.Schema):
 
     company_ownership = RichText(
         title=_(u"Company Ownership"),
-        description=_('eg. Director, ABC Sdn Bhd'
+        description=_('eg. Director, ABC Sdn Bhd, '
             '1998-1997. latest first.'),
         required=False
     )
