@@ -6,11 +6,13 @@ from plone.directives import form, dexterity
 from plone.app.textfield import RichText
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from collective import dexteritytextindexer
-from collective.z3cform.widgets.token_input_widget import TokenInputFieldWidget
+from collective.z3cform.widgets.token_input_widget import \
+TokenInputFieldWidget
+from plone.app.dexterity.behaviors.metadata import IBasic
 
 from sinar.representatives import _
 
-class IRepresentative(form.Schema):
+class IRepresentative(form.Schema,IBasic):
     """A conference presenter. Presenters can be added anywhere.
     """
 
@@ -54,6 +56,12 @@ class IRepresentative(form.Schema):
 
     place_of_birth = schema.TextLine(
             title=_(u'Place of Birth'),
+            description = _(u'eg. Subang Jaya, Selangor'),
+            required=False,
+            )
+
+    place_of_residence = schema.TextLine(
+            title=_(u'Place of Residence'),
             description = _(u'eg. Subang Jaya, Selangor'),
             required=False,
             )
