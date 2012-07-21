@@ -11,6 +11,7 @@
   <includeDependencies package="." />
 
   <!-- Grok the package to initialise schema interfaces and content classes -->
+  <include package="five.grok" />
   <grok:grok package="." />
   
   <i18n:registerTranslations directory="locales" />

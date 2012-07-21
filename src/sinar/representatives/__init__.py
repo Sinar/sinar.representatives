@@ -13,5 +13,6 @@ widget = 'collective.z3cform.widgets.token_input_widget.TokenInputFieldWidget'
 _directives_values[WIDGETS_KEY]['subjects'] = widget
 _schema.getFields(ICategorization)['subjects'].index_name = 'Subject'
 
+
 def initialize(context):
     """Initializer called when used as Zope 2 prodcut."""

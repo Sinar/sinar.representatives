@@ -6,14 +6,16 @@ from plone.directives import form, dexterity
 from plone.app.textfield import RichText
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from collective import dexteritytextindexer
+from plone.autoform.interfaces import IFormFieldProvider
 from collective.z3cform.widgets.token_input_widget import \
 TokenInputFieldWidget
 from plone.app.dexterity.behaviors.metadata import IBasic
 
+
 from sinar.representatives import _
 
 class IRepresentative(form.Schema,IBasic):
-    """A conference presenter. Presenters can be added anywhere.
+    """A Parliamentary Representative.
     """
 
     form.fieldset('websocial',
@@ -27,7 +29,7 @@ class IRepresentative(form.Schema,IBasic):
                     ]
             )
 
-   
+    dexteritytextindexer.searchable('title')
     title = schema.TextLine(
             title=_(u"Name"),
             description=_(u'The name of the representative without'
@@ -36,6 +38,7 @@ class IRepresentative(form.Schema,IBasic):
                 u'Hj. Dzukkefly Ahmad'),
         )
 
+    dexteritytextindexer.searchable('description')
     description = schema.Text(
             title=_(u"A short summary"),
             description=_(u'eg. An ex-lawyer who is now the'
@@ -52,20 +55,21 @@ class IRepresentative(form.Schema,IBasic):
     date_of_birth = schema.Date(
             title=_(u'Date of Birth'),
             required=False,
-            )
 
+            )
+    dexteritytextindexer.searchable('place_of_birth')
     place_of_birth = schema.TextLine(
             title=_(u'Place of Birth'),
             description = _(u'eg. Subang Jaya, Selangor'),
             required=False,
             )
-
+    dexteritytextindexer.searchable('place_of_residence')
     place_of_residence = schema.TextLine(
             title=_(u'Place of Residence'),
             description = _(u'eg. Subang Jaya, Selangor'),
             required=False,
             )
-
+    dexteritytextindexer.searchable('current_spouses')
     current_spouses = schema.List(
             title = _(u'Current Spouse(s)'),
             description = _(
@@ -74,7 +78,7 @@ class IRepresentative(form.Schema,IBasic):
             value_type=schema.TextLine(),
             required=False,
             )
-
+    dexteritytextindexer.searchable('children')
     children = schema.List(
             title = _(u'Children'),
             description = _(u'Full name without honorifics. '
@@ -83,6 +87,7 @@ class IRepresentative(form.Schema,IBasic):
             required=False,
             )
 
+    dexteritytextindexer.searchable('political_experience')
     political_party = schema.List(
         title = _(u'Political Party'),
         description = _(u'eg. UMNO, 2007-present. One per line, latest first.'),
@@ -90,13 +95,14 @@ class IRepresentative(form.Schema,IBasic):
         required=False,
         )
 
+    dexteritytextindexer.searchable('education')
     education = RichText(
         title=_(u'Education'),
         description=_(u'Academic Background'),
         required=False,
         )
 
-   
+    dexteritytextindexer.searchable('working_experience')
     working_experience = RichText(
         title=_(u"Work Experience"),
         description=_('eg. Position name, Company/Organization'
@@ -104,6 +110,7 @@ class IRepresentative(form.Schema,IBasic):
         required=False
     )
 
+    dexteritytextindexer.searchable('political_experience')
     political_experience = RichText(
         title=_(u"Political History"),
         description=_('eg. Head of PAS Research, PAS'
@@ -111,6 +118,7 @@ class IRepresentative(form.Schema,IBasic):
         required=False
     )
 
+    dexteritytextindexer.searchable('company_ownership')
     company_ownership = RichText(
         title=_(u"Company Ownership"),
         description=_('eg. Director, ABC Sdn Bhd, '
@@ -118,6 +126,7 @@ class IRepresentative(form.Schema,IBasic):
         required=False
     )
 
+    dexteritytextindexer.searchable('assets')
     assets = RichText(
         title=_(u"Known Assets, estimated value"),
         description=_('eg. House in Bukit Tunku, RM15 Million.'
@@ -126,6 +135,7 @@ class IRepresentative(form.Schema,IBasic):
         required=False
     )
 
+    dexteritytextindexer.searchable('notes')
     notes = RichText(
         title=_(u"Additional Notes"),
         description=_('Any other related notes.'),
@@ -192,8 +202,10 @@ class IRepresentative(form.Schema,IBasic):
             required=False,
         )
 
+
 class IMP(IRepresentative):
 
+    dexteritytextindexer.searchable('parliamentary_constituency')
     parliamentary_constituency = schema.TextLine(
         title = _(u'Constituency'),
         description = _(u'Parliamentary constituencies. eg. Pagoh, P143 '
@@ -203,6 +215,7 @@ class IMP(IRepresentative):
         required=False,
         )
 
+    dexteritytextindexer.searchable('parliamentary_portfolio')
     parliamentary_portfolio = schema.List(
             title=_(u'Portfolio(s)'),
             description=_(u'eg. Minister of Education, 2008-present. '
@@ -210,5 +223,4 @@ class IMP(IRepresentative):
             value_type=schema.TextLine(),
             required=False,
             )
-    pass
 
