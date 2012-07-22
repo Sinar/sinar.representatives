@@ -9,6 +9,7 @@ from collective import dexteritytextindexer
 from plone.autoform.interfaces import IFormFieldProvider
 from collective.z3cform.widgets.token_input_widget import \
 TokenInputFieldWidget
+from plone.formwidget.autocomplete import AutocompleteFieldWidget
 from plone.app.dexterity.behaviors.metadata import IBasic
 
 
@@ -113,10 +114,21 @@ class IRepresentative(form.Schema,IBasic):
     dexteritytextindexer.searchable('political_experience')
     political_experience = RichText(
         title=_(u"Political History"),
-        description=_('eg. Head of PAS Research, PAS'
+        description=_(u'eg. Head of PAS Research, PAS'
             '1998-1997. latest first.'),
         required=False
     )
+
+    dexteritytextindexer.searchable('legal_cases')
+    legal_cases= RichText(
+        title=_(u'Legal Cases Filed'),
+        description=_(u'Cases filed by and against this '
+        'respresentative. '
+        'eg.  Charged for cheating in relation to the Port Klang'
+        'Free Zone, July 2010'
+        ),
+        required=False
+     )
 
     dexteritytextindexer.searchable('company_ownership')
     company_ownership = RichText(
@@ -210,8 +222,7 @@ class IMP(IRepresentative):
         title = _(u'Constituency'),
         description = _(u'Parliamentary constituencies. eg. Pagoh, P143 '
             'refer to '
-            'http://en.wikipedia.org/wiki/List_of_Malaysian_electoral_districts'
-            ),
+            'http://en.wikipedia.org/wiki/List_of_Malaysian_electoral_districts'),
         required=False,
         )
 
@@ -223,4 +234,6 @@ class IMP(IRepresentative):
             value_type=schema.TextLine(),
             required=False,
             )
+
+
 
