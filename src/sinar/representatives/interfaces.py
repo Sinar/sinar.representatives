@@ -84,7 +84,7 @@ class IRepresentative(form.Schema,IBasic):
             title = _(u'Children'),
             description = _(u'Full name without honorifics. '
                 'One per line. '
-                'Names of minors ares strictly not allowed. '
+                'Names of minors are strictly not allowed. '
                 'Only if publicly shared by MP, '
                 'running a business or in the news.'),
             value_type=schema.TextLine(),
