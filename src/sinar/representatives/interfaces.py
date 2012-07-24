@@ -42,7 +42,7 @@ class IRepresentative(form.Schema,IBasic):
     dexteritytextindexer.searchable('description')
     description = schema.Text(
             title=_(u"A short summary"),
-            description=_(u'eg. An ex-lawyer who is now the'
+            description=_(u'eg. An ex-lawyer who is now the '
             u'representative for Shah Alam'),
             required=False,
         )
@@ -85,8 +85,8 @@ class IRepresentative(form.Schema,IBasic):
             description = _(u'Full name without honorifics. '
                 'One per line. '
                 'Names of minors ares strictly not allowed. '
-                'Only if publicly shared already by MP, or in public '
-                'if running business or in the news.'),
+                'Only if publicly shared by MP, '
+                'running a business or in the news.'),
             value_type=schema.TextLine(),
             required=False,
             )
@@ -152,8 +152,8 @@ class IRepresentative(form.Schema,IBasic):
 
     dexteritytextindexer.searchable('notes')
     notes = RichText(
-        title=_(u"Additional Notes"),
-        description=_('Any other related notes.'),
+        title=_(u"Sources and Additional Notes"),
+        description=_('Sources for and nny other related information.'),
         required=False
     )
 
