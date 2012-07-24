@@ -153,7 +153,7 @@ class IRepresentative(form.Schema,IBasic):
     dexteritytextindexer.searchable('notes')
     notes = RichText(
         title=_(u"Sources and Additional Notes"),
-        description=_('Sources for and nny other related information.'),
+        description=_('Sources and any other related information.'),
         required=False
     )
 
