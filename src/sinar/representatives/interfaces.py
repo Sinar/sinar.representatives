@@ -83,7 +83,10 @@ class IRepresentative(form.Schema,IBasic):
     children = schema.List(
             title = _(u'Children'),
             description = _(u'Full name without honorifics. '
-                'One per line.'),
+                'One per line. '
+                'Names of minors ares strictly not allowed. '
+                'Only if publicly shared already by MP, or in public '
+                'if running business or in the news.'),
             value_type=schema.TextLine(),
             required=False,
             )

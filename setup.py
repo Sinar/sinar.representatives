@@ -29,6 +29,7 @@ setup(name='sinar.representatives',
       'collective.dexteritytextindexer',
       'collective.dexteritydiff',
       'collective.z3cform.widgets',
+      'cioppino.twothumbs',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
