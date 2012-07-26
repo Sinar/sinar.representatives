@@ -81,7 +81,7 @@ class IRepresentative(form.Schema,IBasic):
             )
     dexteritytextindexer.searchable('children')
     children = schema.List(
-            title = _(u'Children'),
+            title = _(u'Adult Children'),
             description = _(u'Full name without honorifics. '
                 'One per line. '
                 'Names of minors are strictly not allowed. '
