@@ -53,6 +53,32 @@ class IRepresentative(form.Schema,IBasic):
             required=False,
             )
 
+    email = schema.TextLine(
+            title=_(u'Email address'),
+            description=_(u'eg. kohtsukoon@pmo.gov.my'),
+            required=False,
+            )
+
+    phone = schema.TextLine(
+            title=_(u'Phone'),
+            description=_(u'eg. +60 3 8888 8000'),
+            required=False,
+            )
+
+    fax = schema.TextLine(
+            title=_(u'Fax'),
+            description=_(u'eg. +60 3 8888 8000'),
+            required=False,
+            )
+
+    dexteritytextindexer.searchable('office_address')
+    office_address = schema.Text(
+            title=_(u'Office Address'),
+            description = _(
+                u'Street address of office'),
+            required=False,
+            )
+
     date_of_birth = schema.Date(
             title=_(u'Date of Birth'),
             required=False,
@@ -193,24 +219,6 @@ class IRepresentative(form.Schema,IBasic):
             required=False
             )
 
-    email = schema.TextLine(
-            title=_(u'Email address'),
-            description=_(u'eg. kohtsukoon@pmo.gov.my'),
-            required=False,
-            )
-
-    phone = schema.TextLine(
-            title=_(u'Phone'),
-            description=_(u'eg. +60 3 8888 8000'),
-            required=False,
-            )
-
-    fax = schema.TextLine(
-            title=_(u'Fax'),
-            description=_(u'eg. +60 3 8888 8000'),
-            required=False,
-            )
-
     picture = NamedBlobImage(
             title=_(u"Picture"),
             description=_(u"Please upload an image"),
@@ -237,6 +245,4 @@ class IMP(IRepresentative):
             value_type=schema.TextLine(),
             required=False,
             )
-
-
 
