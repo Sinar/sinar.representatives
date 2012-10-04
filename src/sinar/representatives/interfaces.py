@@ -86,7 +86,7 @@ class IRepresentative(form.Schema,IBasic):
             )
     dexteritytextindexer.searchable('place_of_birth')
     place_of_birth = schema.TextLine(
-            title=_(u'Place of Birth'),
+            title=_(u'Place of Birth (Optional)'),
             description = _(u'eg. Subang Jaya, Selangor'),
             required=False,
             )
@@ -98,7 +98,7 @@ class IRepresentative(form.Schema,IBasic):
             )
     dexteritytextindexer.searchable('current_spouses')
     current_spouses = schema.List(
-            title = _(u'Current Spouse(s)'),
+            title = _(u'Current Spouse(s) (Optional)'),
             description = _(
                 u'Full name without honorifics. '
                 'One per line.'),
@@ -107,7 +107,7 @@ class IRepresentative(form.Schema,IBasic):
             )
     dexteritytextindexer.searchable('children')
     children = schema.List(
-            title = _(u'Adult Children'),
+            title = _(u'Adult Children (Optional)'),
             description = _(u'Full name without honorifics. '
                 'One per line. '
                 'Names of minors are strictly not allowed. '
@@ -150,7 +150,7 @@ class IRepresentative(form.Schema,IBasic):
 
     dexteritytextindexer.searchable('legal_cases')
     legal_cases= RichText(
-        title=_(u'Legal Cases Filed'),
+        title=_(u'Legal Cases Filed (Optional)'),
         description=_(u'Cases filed by and against this '
         'respresentative. '
         'eg.  Charged for cheating in relation to the Port Klang'
@@ -161,7 +161,7 @@ class IRepresentative(form.Schema,IBasic):
 
     dexteritytextindexer.searchable('company_ownership')
     company_ownership = RichText(
-        title=_(u"Company Ownership"),
+        title=_(u"Company Ownership (Optional)"),
         description=_('eg. Director, ABC Sdn Bhd, '
             '1998-1997. latest first.'),
         required=False
@@ -169,7 +169,7 @@ class IRepresentative(form.Schema,IBasic):
 
     dexteritytextindexer.searchable('assets')
     assets = RichText(
-        title=_(u"Known Assets, estimated value"),
+        title=_(u"Known Assets, estimated value (Optional)"),
         description=_('eg. House in Bukit Tunku, RM15 Million.'
             '[citation] '
             'Must have citation from reliable source.'),
