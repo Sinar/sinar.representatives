@@ -176,6 +176,10 @@ class IRepresentative(form.Schema,IBasic):
         required=False
     )
 
+    transparency_integrity = schema.Bool(
+                title = _(u'Signed Election Pledge on Integrity'),
+                )
+
     dexteritytextindexer.searchable('notes')
     notes = RichText(
         title=_(u"Sources and Additional Notes"),
