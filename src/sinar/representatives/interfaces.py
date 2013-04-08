@@ -176,8 +176,11 @@ class IRepresentative(form.Schema,IBasic):
         required=False
     )
 
-    transparency_integrity = schema.Bool(
+    transparency_integrity = schema.TextLine(
                 title = _(u'Signed Election Pledge on Integrity'),
+                description = _(u'Paste URL here eg. '
+                'http://timalaysia-electionpledge.org.my/pledges_details.php?id=7'),
+                required=False,
                 )
 
     dexteritytextindexer.searchable('notes')
