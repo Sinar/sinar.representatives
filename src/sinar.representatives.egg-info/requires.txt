@@ -1,3 +1,0 @@
-setuptools
-Plone
-plone.app.dexterity
