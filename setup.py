@@ -2,7 +2,6 @@ from setuptools import setup, find_packages
 import os
 
 version = '0.1'
-≡jedi=0, ≡     (**attrs) ≡jedi≡
 setup(name='sinar.representatives',
       version=version,
       description="Generic Representatives content type for Plone",
@@ -31,8 +30,7 @@ setup(name='sinar.representatives',
           'collective.grok',
           'plone.app.referenceablebehavior',
           'collective.dexteritytextindexer',
-          'plone.app.multilingual',
-          'plone.multilingualbehavior',
+          'plone.app.multilingual==2.0.0',
           'plone.app.versioningbehavior',
           # -*- Extra requirements: -*-
       ],
