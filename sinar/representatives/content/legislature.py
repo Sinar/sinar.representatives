@@ -27,6 +27,5 @@ class ILegislature(form.Schema, IImageScaleTraversable):
     """
     Legislative Assembly such as House of Representatives, Senate etc.
     """
-    pass
 
-
+    popit_id = schema.TextLine(title=u'Popit Id')

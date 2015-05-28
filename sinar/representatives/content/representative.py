@@ -27,6 +27,6 @@ class IRepresentative(form.Schema, IImageScaleTraversable):
     """
     Elected Represenative
     """
-    pass
 
+    popit_id = schema.TextLine(title=u'Popit Id')
 

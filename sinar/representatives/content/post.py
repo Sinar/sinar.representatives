@@ -27,6 +27,4 @@ class IPost(form.Schema, IImageScaleTraversable):
     """
     Electoral Post
     """
-    pass
-
-
+    popit_id = schema.TextLine(title=u'Popit Id')

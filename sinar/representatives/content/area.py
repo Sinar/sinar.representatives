@@ -27,6 +27,5 @@ class IArea(form.Schema, IImageScaleTraversable):
     """
     Electoral Division
     """
-    pass
 
-
+    area_code = schema.TextLine(title=u'Area Code')
