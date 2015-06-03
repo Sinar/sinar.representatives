@@ -18,6 +18,7 @@ from plone.app.textfield import RichText
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
+from sinar.representatives.content.representative import IRepresentative
 from sinar.representatives import MessageFactory as _
 
 
@@ -28,3 +29,9 @@ class IPost(form.Schema, IImageScaleTraversable):
     Electoral Post
     """
     popit_id = schema.TextLine(title=u'Popit Id')
+
+    representative = RelationChoice(
+            title=_(u'Elected Representative'),
+            source=ObjPathSourceBinder(object_provides=IRepresentative.__identifier__),
+            required=False,
+            )

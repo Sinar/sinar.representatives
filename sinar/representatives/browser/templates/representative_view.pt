@@ -22,6 +22,11 @@
     <p class="documentDescription" tal:content="person/summary"></p>
     <img tal:attributes="src person/image" height="250px"/>
 
+    <p tal:content="person/birth_date"></p>
+
+    <h3>Biography</h3>
+    <p tal:content="structure context/biography/output"></p>
+
     <h2>Contact fields</h2>
             <tal:block tal:repeat="detail person/contact_details">
             <dl>
@@ -30,8 +35,24 @@
             </dl>
                 
             </tal:block>
+
     
     </div>
+
+
+        <h1>MyMP Survey</h1>
+        
+       <h3>Pelan</h3>
+    <p tal:content="structure context/mymp_plan/output">
+    </p>
+
+    <h3>Peranan Wakil Rakyat</h3>
+    <p tal:content="structure context/mymp_role/output">
+    </p>
+
+    <h3>Cadangan Buku</h3>
+    <p tal:content="structure context/mymp_book/output">
+    </p>
 
   </metal:content-core>
 </metal:main>
