@@ -37,57 +37,31 @@
 
         <p tal:on-error="string: " tal:content="representative/summary"></p>
 
-        Born
         <p>
+        Born
         <span tal:on-error="string:
             "tal:content="representative/birth_date"></span>,&nbsp;&nbsp;<span tal:content="context/representative/to_object/birth_location"></span>
         </p>
 
+        <h1>Biography</h1>
+        <div tal:content="structure
+        context/representative/to_object/biography/output | nothing">
+        </div>
+
         <h2>Contact details</h2>
-        <tal:block tal:repeat="detail representative/contact_details">
-        <dl>
+        <dl tal:on-error="string: " tal:repeat="detail representative/contact_details">
+
             <dt tal:content="detail/label"></dt>
             <dd tal:content="detail/value"></dd>
         </dl>
-        </tal:block>
 
         <h2>Websites</h2>
-        <tal:block tal:repeat="detail representative/links">
-        <dl>
-            <dt tal:content="detail/note"></dt>
-            <dd tal:content="detail/url"></dd>
-        </dl>
-        </tal:block>
-
-        <h3>Biography</h3>
-        <p tal:on-error="string: " tal:condition="context/biography" tal:content="structure
-        context/biography/output"></p>
-
-        <tal:block
-        tal:condition="context/representative/to_object/mymp_plan">
-        <h1>MyMP Survey</h1>
-
-        <h3>Pelan</h3>
-        <p tal:content="structure
-        context/representative/to_object/mymp_plan/output | nothing">
-        </p>
-
-        <h3>Peranan Wakil Rakyat</h3>
-        <p tal:content="structure
-        context/representative/to_object/mymp_role/output | nothing">
-        </p>
-
-        <h3>Cadangan Buku</h3>
-        <p tal:content="structure
-        context/representative/to_object/mymp_book/output | nothing">
-        </p>
-
-
-
-        </tal:block>
-
-
- 
+        <ul tal:repeat="detail representative/links">
+            <li><a tal:attributes="href detail/url">
+                <span tal:content="detail/note"></span>
+                </a>
+            </li>
+        </ul>
                                                                                 
     </tal:block>
 

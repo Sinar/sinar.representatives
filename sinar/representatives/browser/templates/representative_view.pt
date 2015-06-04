@@ -17,19 +17,20 @@
 
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
-
     
     <div tal:define="person view/person">
 
-    <p tal:on-error="string: " class="documentDescription" tal:content="person/summary"></p>
+        <p tal:on-error="string: " class="documentDescription" tal:content="person/summary"></p>
 
     <tal:block tal:on-error="string: ">
     <img tal:attributes="src person/image" height="250px"/>
     </tal:block>
 
     <p tal:on-error="string: " tal:content="person/birth_date"></p>
+    <p tal:on-error="string: " tal:content="context/birth_location"></p>
 
-    <h3>Biography</h3>
+
+    <h1>Biography</h1>
     <p tal:condition="context/biography" tal:content="structure context/biography/output"></p>
 
     <h2>Contact fields</h2>
@@ -42,17 +43,16 @@
             </tal:block>
 
         <h2>Websites</h2>
-        <tal:block tal:repeat="detail person/links">
-        <dl>
-            <dt tal:content="detail/note"></dt>
-            <dd tal:content="detail/url"></dd>
-        </dl>
-        </tal:block>
+        <ul tal:repeat="detail person/links">
+            <li><a tal:attributes="href detail/url">
+                 <span tal:content="detail/note"></span>
+                </a>
+            </li>
+        </ul>
 
     </div>
 
-
-    <tal:block tal:condition="context/mymp_plan">
+    <tal:block tal:on-error="string: " tal:condition="context/mymp_plan">
 
         <h1>MyMP Survey</h1>
             

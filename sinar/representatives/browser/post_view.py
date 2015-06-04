@@ -16,11 +16,11 @@ class Index(dexterity.DisplayForm):
 
         popit_id = self.context.representative.to_object.popit_id
 
-        person_raw = requests.get('http://sinar-malaysia.popit.mysociety.org/api/v0.1/search/persons?q=id:'
-                + popit_id)
+        person_raw = requests.get('http://sinar-malaysia.popit.mysociety.org/api/v0.1/persons/' +
+                     popit_id)
 
         person_json = json.loads(person_raw.content)
 
-        person = person_json['result'][0]
+        person = person_json['result']
 
         return person
