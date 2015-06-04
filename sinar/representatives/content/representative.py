@@ -31,8 +31,10 @@ class IRepresentative(form.Schema, IImageScaleTraversable):
     popit_id = schema.TextLine(title=u'Popit Id')
 
     biography = RichText(
-                title=_(u'Biography'),)
+                title=_(u'Biography')
+                required=False,)
 
     birth_location = schema.Text(
-                title=_(u'Birth Location'),)
+                title=_(u'Birth Location'),
+                required=False,)
 
