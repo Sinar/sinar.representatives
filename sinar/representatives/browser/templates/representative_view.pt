@@ -17,18 +17,23 @@
 
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
+
+    
     <div tal:define="person view/person">
 
-    <p class="documentDescription" tal:content="person/summary"></p>
-    <img tal:attributes="src person/image" height="250px"/>
+    <p tal:on-error="string: " class="documentDescription" tal:content="person/summary"></p>
 
-    <p tal:content="person/birth_date"></p>
+    <tal:block tal:on-error="string: ">
+    <img tal:attributes="src person/image" height="250px"/>
+    </tal:block>
+
+    <p tal:on-error="string: " tal:content="person/birth_date"></p>
 
     <h3>Biography</h3>
-    <p tal:content="structure context/biography/output"></p>
+    <p tal:on-error="string: " tal:content="structure context/biography/output"></p>
 
     <h2>Contact fields</h2>
-            <tal:block tal:repeat="detail person/contact_details">
+            <tal:block tal:on-error="string: " tal:repeat="detail person/contact_details">
             <dl>
                 <dt tal:content="detail/label"></dt>
                 <dd tal:content="detail/value"></dd>
@@ -36,23 +41,34 @@
                 
             </tal:block>
 
-    
+        <h2>Websites</h2>
+        <tal:block tal:repeat="detail person/links">
+        <dl>
+            <dt tal:content="detail/note"></dt>
+            <dd tal:content="detail/url"></dd>
+        </dl>
+        </tal:block>
+
     </div>
 
 
+    <tal:block tal:condition="context/mymp_plan">
+
         <h1>MyMP Survey</h1>
-        
-       <h3>Pelan</h3>
-    <p tal:content="structure context/mymp_plan/output">
-    </p>
+            
+        <h3>Pelan</h3>
+        <p tal:condition="context/mymp_plan" tal:content="structure context/mymp_plan/output">
+        </p>
 
-    <h3>Peranan Wakil Rakyat</h3>
-    <p tal:content="structure context/mymp_role/output">
-    </p>
+        <h3>Peranan Wakil Rakyat</h3>
+        <p tal:condition="context/mymp_role" tal:content="structure context/mymp_role/output">
+        </p>
 
-    <h3>Cadangan Buku</h3>
-    <p tal:content="structure context/mymp_book/output">
-    </p>
+        <h3>Cadangan Buku</h3>
+        <p tal:condition="context/mymp_book" tal:content="structure context/mymp_book/output">
+        </p>
+
+    </tal:block>
 
   </metal:content-core>
 </metal:main>

@@ -20,10 +20,16 @@
 
 
   <h1>Elected Representative</h1>
+
+  <p tal:condition="not: context/representative">
+  There are currently no representatives holding this post.
+  </p>
+
+  <tal:block tal:condition="context/representative">
+
   <a tal:attributes="href context/representative/to_object/absolute_url">
   <h3 tal:content="context/representative/to_object/title"></h3>
   </a>
-
 
     <tal:block tal:define="representative view/representative">
 
@@ -37,14 +43,21 @@
 
 
 
-         <h2>Contact details</h2>
-            <tal:block tal:repeat="detail representative/contact_details">
-            <dl>
-                <dt tal:content="detail/label"></dt>
-                <dd tal:content="detail/value"></dd>
-            </dl>
-    
-            </tal:block>
+        <h2>Contact details</h2>
+        <tal:block tal:repeat="detail representative/contact_details">
+        <dl>
+            <dt tal:content="detail/label"></dt>
+            <dd tal:content="detail/value"></dd>
+        </dl>
+        </tal:block>
+
+        <h2>Websites</h2>
+        <tal:block tal:repeat="detail representative/links">
+        <dl>
+            <dt tal:content="detail/note"></dt>
+            <dd tal:content="detail/url"></dd>
+        </dl>
+        </tal:block>
 
     <h3>Biography</h3>
     <p tal:content="structure
@@ -69,6 +82,8 @@
     </p>
 
     </tal:block>
+
+  </tal:block>
 
   </metal:content-core>
 </metal:main>
