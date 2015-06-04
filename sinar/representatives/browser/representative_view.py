@@ -16,7 +16,7 @@ class View(dexterity.DisplayForm):
 
     def person(self):
        person_raw = requests.get(
-               'https://sinar-malaysia.popit.mysociety.org/api/v0.1/persons/' + 
+               'http://sinar-malaysia.popit.mysociety.org/api/v0.1/persons/' + 
                 self.context.popit_id)
        person_json = json.loads(person_raw.content)
 
