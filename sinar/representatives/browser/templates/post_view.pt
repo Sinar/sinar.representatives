@@ -37,11 +37,7 @@
         <p tal:content="representative/summary"></p>
         <p tal:content="representative/birth_date"></p>
 
-           <p
-                                                       tal:content="context/representative/to_object/birth_location"></p>
-
-
-
+        <p tal:content="context/representative/to_object/birth_location"></p>
 
         <h2>Contact details</h2>
         <tal:block tal:repeat="detail representative/contact_details">
@@ -60,7 +56,7 @@
         </tal:block>
 
     <h3>Biography</h3>
-    <p tal:content="structure
+    <p tal:condition="context/biography" tal:content="structure
     context/representative/to_object/biography/output">
     </p>
 
