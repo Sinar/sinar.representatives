@@ -30,7 +30,7 @@
     <p tal:on-error="string: " tal:content="person/birth_date"></p>
 
     <h3>Biography</h3>
-    <p tal:on-error="string: " tal:content="structure context/biography/output"></p>
+    <p tal:condition="context/biography" tal:content="structure context/biography/output"></p>
 
     <h2>Contact fields</h2>
             <tal:block tal:on-error="string: " tal:repeat="detail person/contact_details">
