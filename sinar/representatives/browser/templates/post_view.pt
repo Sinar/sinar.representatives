@@ -33,11 +33,15 @@
 
     <tal:block tal:define="representative view/representative">
 
-        <img tal:attributes="src representative/image" height="250px"/>
-        <p tal:content="representative/summary"></p>
-        <p tal:content="representative/birth_date"></p>
+        <img tal:on-error="string: " tal:attributes="src representative/image" height="250px"/>
 
-        <p tal:content="context/representative/to_object/birth_location"></p>
+        <p tal:on-error="string: " tal:content="representative/summary"></p>
+
+        Born
+        <p>
+        <span tal:on-error="string:
+            "tal:content="representative/birth_date"></span>,&nbsp;&nbsp;<span tal:content="context/representative/to_object/birth_location"></span>
+        </p>
 
         <h2>Contact details</h2>
         <tal:block tal:repeat="detail representative/contact_details">
@@ -55,28 +59,36 @@
         </dl>
         </tal:block>
 
-    <h3>Biography</h3>
-    <p tal:condition="context/biography" tal:content="structure
-    context/representative/to_object/biography/output">
-    </p>
+        <h3>Biography</h3>
+        <p tal:on-error="string: " tal:condition="context/biography" tal:content="structure
+        context/biography/output"></p>
 
-    <h1>MyMP Survey</h1>
+        <tal:block
+        tal:condition="context/representative/to_object/mymp_plan">
+        <h1>MyMP Survey</h1>
 
-    <h3>Pelan</h3>
-    <p tal:content="structure
-    context/representative/to_object/mymp_plan/output">
-    </p>
+        <h3>Pelan</h3>
+        <p tal:content="structure
+        context/representative/to_object/mymp_plan/output | nothing">
+        </p>
 
-    <h3>Peranan Wakil Rakyat</h3>
-    <p tal:content="structure
-    context/representative/to_object/mymp_role/output">
-    </p>
+        <h3>Peranan Wakil Rakyat</h3>
+        <p tal:content="structure
+        context/representative/to_object/mymp_role/output | nothing">
+        </p>
 
-    <h3>Cadangan Buku</h3>
-    <p tal:content="structure
-    context/representative/to_object/mymp_book/output">
-    </p>
+        <h3>Cadangan Buku</h3>
+        <p tal:content="structure
+        context/representative/to_object/mymp_book/output | nothing">
+        </p>
 
+
+
+        </tal:block>
+
+
+ 
+                                                                                
     </tal:block>
 
   </tal:block>
