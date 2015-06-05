@@ -17,6 +17,7 @@ from plone.app.textfield import RichText
 
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.app.multilingual.dx import directives
 
 from sinar.representatives import MessageFactory as _
 
@@ -28,6 +29,7 @@ class IRepresentative(form.Schema, IImageScaleTraversable):
     Elected Represenative
     """
 
+    directives.languageindependent('popit_id')
     popit_id = schema.TextLine(title=u'Popit Id')
 
     biography = RichText(

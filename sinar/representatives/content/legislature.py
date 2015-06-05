@@ -18,6 +18,8 @@ from plone.app.textfield import RichText
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
+from plone.app.multilingual.dx import directives
+
 from sinar.representatives import MessageFactory as _
 
 
@@ -28,4 +30,5 @@ class ILegislature(form.Schema, IImageScaleTraversable):
     Legislative Assembly such as House of Representatives, Senate etc.
     """
 
+    directives.languageindependent('popit_id')
     popit_id = schema.TextLine(title=u'Popit Id')
