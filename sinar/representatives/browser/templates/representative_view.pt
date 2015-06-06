@@ -17,17 +17,27 @@
 
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
-    
-    <div tal:define="person view/person">
 
-        <p tal:on-error="string: " class="documentDescription" tal:content="person/summary"></p>
+    <div tal:condition="not: view/person">
+        <p>Error retrieving popit person with id: <span
+                      tal:content="context/popit_id"></span>.
+        </p>
+
+        <p>Please contact Site Administrator</p>
+    </div>
+
+    <div tal:condition="view/person | nothing" tal:define="person view/person">
+
+        <p class="documentDescription" 
+             tal:content="person/summary |nothing">
+        </p>
 
     <tal:block tal:on-error="string: ">
     <img tal:attributes="src person/image" height="250px"/>
     </tal:block>
 
-    <p tal:on-error="string: " tal:content="person/birth_date"></p>
-    <p tal:on-error="string: " tal:content="context/birth_location"></p>
+    <p tal:content="person/birth_date | nothing"></p>
+    <p tal:content="context/birth_location | nothing"></p>
 
 
     <h1>Biography</h1>
@@ -43,7 +53,7 @@
             </tal:block>
 
         <h2>Websites</h2>
-        <ul tal:repeat="detail person/links">
+        <ul tal:repeat="detail person/links | nothing">
             <li><a tal:attributes="href detail/url">
                  <span tal:content="detail/note"></span>
                 </a>

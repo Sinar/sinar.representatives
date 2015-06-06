@@ -15,11 +15,17 @@ class View(dexterity.DisplayForm):
     grok.name('view')
 
     def person(self):
-       person_raw = requests.get(
+       
+        person_raw = requests.get(
                'http://sinar-malaysia.popit.mysociety.org/api/v0.1/persons/' + 
                 self.context.popit_id)
-       person_json = json.loads(person_raw.content)
+        person_json = json.loads(person_raw.content)
 
-       person = person_json['result']
+        try:
+            person = person_json['result']
 
-       return person
+        except:
+            print "Popit Error: " + person_json['errors'][0]
+            person = None
+
+        return person
