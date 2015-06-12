@@ -27,38 +27,96 @@
 
   <tal:block tal:condition="context/representative">
 
-  <div class="sidebar">
+  <div id="sidebar" class="sidebar">
     <tal:block tal:define="representative view/representative">
-    <img tal:on-error="string: " tal:attributes="src representative/image" height="250px"/>
+    <div id="portrait">
+        <tal:block tal:condition="representative/image|nothing">
+            <img tal:attributes="src representative/image" height="250px"/>
+        </tal:block>
+        <tal:block tal:condition="not: representative/image|nothing">
+            <img src="defaultUser.png" height="250px" />
+        </tal:block>
+    </div>
+    
+    <dl>
+        <dt>Born</dt>
+        <dd tal:condition="not: representative/birth_date|nothing">Not
+        available</dd>
+        <dd><span tal:content="representative/birth_date | nothing"></span></dd>
+        <dd><span
+            tal:content="context/representative/to_object/birth_location|
+            nothing"></span></dd>
+    </dl>
 
-    <p>
-      Born
-      <span tal:on-error="string:
-       "tal:content="representative/birth_date"></span>,&nbsp;&nbsp;<span tal:content="context/representative/to_object/birth_location"></span>
-    </p>
 
-    <h2>Contact details</h2>
-        <dl tal:on-error="string: " tal:repeat="detail representative/contact_details">
+    <div id="contact">
 
-            <dt tal:content="detail/label"></dt>
-            <dd tal:content="detail/value"></dd>
-        </dl>
+        <h2>Contact details</h2>
+        <p tal:condition="not: representative/contact_details| nothing">
+        Not Available
+        </p>
 
-    <h2>Websites</h2>
-    <ul tal:repeat="detail representative/links">
-        <li><a tal:attributes="href detail/url">
-            <span tal:content="detail/note"></span>
-            </a>
-        </li>
-    </ul>
+            <dl tal:repeat="detail representative/contact_details|nothing">
+
+               <tal:block tal:condition="python: detail['type']=='email'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:
+                 detail['type']=='phone'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:
+                 detail['type']=='address'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:
+                detail['type']=='twitter'">
+                <dt tal:content="detail/label"></dt>
+                <dd>
+                    <a tal:attributes="data-screen-name detail/value"
+                    class="twitter-timeline" href="https://twitter.com/sinarproject"
+                    data-widget-id="609205911387639808"
+                    data-tweet-limit="1"
+                    data-screen-name="sinarproject">Tweets by @sinarproject</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:detail['type']=='facebook'">
+                <dt tal:content="detail/label"></dt>
+                <dd><a tal:attributes="href
+                    python:'https://facebook.com/' + detail['value']"><span
+                    tal:content="detail/value"></span></a></dd>
+                </tal:block>
+            </dl>
+
+        <h2>Websites</h2>
+        <p tal:condition="not: representative/links|nothing">
+        Not Available
+        </p>
+        <ul tal:repeat="detail representative/links">
+            <li><a tal:attributes="href detail/url">
+                <span tal:content="detail/note"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+   
 
     </tal:block>
   </div>
 
-  <div class="main-column">
-    <h1 tal:content="context/title"></h1>
+  <div id="main">
+    <h1 id="post" tal:content="context/title"></h1>
     <a tal:attributes="href context/representative/to_object/absolute_url">
-    <h3 tal:content="context/representative/to_object/title"></h3>
+    <h3 id="representative" tal:content="context/representative/to_object/title"></h3>
     </a>
         <tal:block tal:define="representative view/representative">
 
@@ -76,7 +134,7 @@
 
             https://github.com/Sinar/sinar.representatives/issues/31    
         -->
-        <tal:block tal:condition="context/representative/to_object/mymp_plan|nothing">
+        <div id="mymp-survey" tal:condition="context/representative/to_object/mymp_plan|nothing">
 
             <h2>MyMP Survey</h2>
                 
@@ -95,7 +153,20 @@
                tal:content="structure context/representative/to_object/mymp_book/output">
             </p>
 
-        </tal:block>
+        </div>
+
+        <div id="sources">
+            <p class="discreet">
+            Sources:<br />
+            <a tal:attributes="href python:
+            'https://sinar-malaysia.popit.mysociety.org/persons/' +
+                context.representative.to_object.popit_id">Sinar Project
+                Popit Database</a>
+            <br />
+            MCCHR MyMP Survey
+            </p>
+
+        </div>
 
   </div>
 

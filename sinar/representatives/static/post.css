@@ -1,1 +1,13 @@
 /* post.css */
+
+
+#sidebar { float: left; width: 300px; margin: 10px; padding: 10px; background: #eeeeee;}
+#main { float:left;}
+div#portrait img { display:block; margin: 0 auto 0 auto; padding: 0 0 10px 0; }
+
+#main {margin: 10px; padding: 10px; }
+
+div#contact dl dd { margin: 0 0 1em 0; }
+
+body.portaltype-sinar-representatives-post #post  { font-size: 48px;}
+body.portaltype-sinar-representatives-post #representative{ font-size: 38px; color: darkcyan;}
