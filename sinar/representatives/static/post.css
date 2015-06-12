@@ -2,10 +2,9 @@
 
 
 #sidebar { float: left; width: 300px; margin: 10px; padding: 10px; background: #eeeeee;}
-#main { float:left;}
+#main {margin: 10px; padding: 10px; float: left; width:50%;}
 div#portrait img { display:block; margin: 0 auto 0 auto; padding: 0 0 10px 0; }
 
-#main {margin: 10px; padding: 10px; }
 
 div#contact dl dd { margin: 0 0 1em 0; }
 
