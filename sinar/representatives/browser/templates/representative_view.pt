@@ -15,6 +15,7 @@
     if needed.
 </tal:comment>
 
+
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
@@ -79,6 +80,15 @@
         </p>
 
     </tal:block>
+
+    Currently Elected Representative of:
+
+    <tal:block tal:repeat="mp view/mp_post">
+        
+        <span tal:content="mp/absolute_url"></span>
+    </tal:block>
+
+
 
   </metal:content-core>
 </metal:main>
