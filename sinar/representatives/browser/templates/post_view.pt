@@ -163,9 +163,10 @@
                 context.representative.to_object.popit_id">Sinar Project
                 Popit Database</a>
             <br />
-            MCCHR MyMP Survey
+            <span
+               tal:condition="context/representative/to_object/mymp_plan">MCCHR
+               MyMP Survey</span>
             </p>
-
         </div>
 
   </div>
