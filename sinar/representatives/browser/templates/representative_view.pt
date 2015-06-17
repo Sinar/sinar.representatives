@@ -51,15 +51,19 @@
         </div>
 
         <dl>
-            <dt>Birthdate, Age</dt>
-            <dl><span tal:content="person/birth_date | nothing"></span>
-                , &nbsp;<span tal:content="person/age | nothing"></span></dl>
-            <dt>Birth Place</dt>
-            <dl tal:content="context/birth_location | nothing"></dl>
-
+            <dt>Born</dt>
+            <dd tal:condition="not: person/birth_date|nothing">Not
+            available</dd>
+            <dd><span tal:content="person/birth_date | nothing"></span></dd>
+            <dd><span
+                tal:content="context/birth_location|nothing"></span></dd>
+            <dd>Age: <span tal:content="person/age |
+                nothing"></span></dd>
         </dl>
 
-       
+
+
+               
           <h2>Contact Details</h2>
 
             <dl tal:repeat="detail person/contact_details|nothing">

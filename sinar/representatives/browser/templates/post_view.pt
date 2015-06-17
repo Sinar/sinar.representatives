@@ -46,6 +46,8 @@
         <dd><span
             tal:content="context/representative/to_object/birth_location|
             nothing"></span></dd>
+        <dd>Age: <span tal:content="representative/age |
+            nothing"></span></dd>
     </dl>
 
 
