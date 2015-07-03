@@ -25,7 +25,8 @@
            <div class="featured-portrait">
                <div tal:define="person item_obj/@@view/person">
                         <tal:block tal:condition="person/image|nothing">
-                            <img tal:attributes="src person/image" height="250px"/>
+                            <img tal:attributes="src person/image"
+                height="320px"/>
                         </tal:block>
                         <tal:block tal:condition="not: person/image|nothing">
                             <img src="defaultUser.png" height="250px" />
