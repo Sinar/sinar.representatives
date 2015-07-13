@@ -24,11 +24,12 @@ class Index(dexterity.DisplayForm):
         person = person_json['result']
 
         if person.has_key('birth_date'):
-            birth_date = person['birth_date']
-            born = parser.parse(birth_date)
-            today = datetime.date.today()
-            age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))            
-            person['age'] = age
+            if person['birth_date']:
+                birth_date = person['birth_date']
+                born = parser.parse(birth_date)
+                today = datetime.date.today()
+                age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))            
+                person['age'] = age
 
         
         return person

@@ -31,13 +31,13 @@ class View(dexterity.DisplayForm):
         try:
             person = person_json['result']
 
-
             if person.has_key('birth_date'):
-                birth_date = person['birth_date']
-                born = parser.parse(birth_date)
-                today = datetime.date.today()
-                age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))            
-                person['age'] = age
+                if person['birth_date']:
+                    birth_date = person['birth_date']
+                    born = parser.parse(birth_date)
+                    today = datetime.date.today()
+                    age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))            
+                    person['age'] = age
 
         except:
             print "Popit Error: " + person_json['errors'][0]
