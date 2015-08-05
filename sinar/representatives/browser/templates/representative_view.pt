@@ -137,12 +137,6 @@
                 </li>
             </ul>
 
-
-
-
-        <p tal:content="context/birth_location | nothing"></p>
-
-
         <h1>Biography</h1>
         <p tal:condition="context/biography" tal:content="structure context/biography/output"></p>
 
