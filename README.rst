@@ -16,8 +16,11 @@ behaviours and then assign it to this.
 Credits
 -------
 
+- Addtional development including multilingual support funded by SEATTI
+  grant.
+
+
 - Popit based rewrite funded by Poplus grant.
 - Original development funded by ISIF Asia grant.
-
 
 

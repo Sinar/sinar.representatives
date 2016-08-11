@@ -32,6 +32,7 @@ setup(name='sinar.representatives',
           'collective.dexteritytextindexer',
           'plone.app.multilingual==2.0.0',
           'plone.app.versioningbehavior',
+          'collective.portlet.collectionmultiview',
           'requests',
           # -*- Extra requirements: -*-
       ],

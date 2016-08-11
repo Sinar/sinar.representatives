@@ -92,9 +92,8 @@
                 
                 <tal:block tal:condition="python:detail['type']=='facebook'">
                 <dt tal:content="detail/label"></dt>
-                <dd><a tal:attributes="href
-                    python:'https://facebook.com/' + detail['value']"><span
-                    tal:content="detail/value"></span></a></dd>
+                <dd><a tal:attributes="href detail/value"><span
+                    tal:content="detail/label"></span></a></dd>
                 </tal:block>
             </dl>
 
