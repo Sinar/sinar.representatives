@@ -1,8 +1,0 @@
-<configure
-    xmlns="http://namespaces.zope.org/zope"
-    i18n_domain="collective.portlet.collectionmultiview">
-
-   <adapter name="featured"
-            factory=".base.FeaturedRenderer" />
-
-</configure>
