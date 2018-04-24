@@ -23,10 +23,7 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
             <h3>Representing<h3>
-            <h5>Parti Keadilan Rakyat</h5>
-            <img
-            src="https://vignette.wikia.nocookie.net/logopedia/images/0/08/PKR_logo.png/revision/latest/scale-to-width-down/320?cb=20160516053555"
-            />
+                    <p>On behalf of party and flag here</p>
 
             <div id="portrait">
             <tal:block tal:condition="person/image|nothing">
