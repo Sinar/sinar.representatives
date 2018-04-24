@@ -1,39 +1,38 @@
 <?xml version="1.0"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    name="representative"
+    name="CV"
     meta_type="Dexterity FTI"
     i18n:domain="sinar.representatives">
 
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">Representative</property>
+      name="title">CV</property>
   <property
       i18n:translate=""
-      name="description">Popit Backed Representative</property>
+      name="description">Folder containing CV items</property>
 
   <property name="allow_discussion">False</property>
-  <property name="factory">representative</property>
+  <property name="factory">CV</property>
   <property name="icon_expr"></property>
   <property name="link_target"></property>
 
   <!-- Hierarchy control -->
+  <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
-    <element value="Blacklist Criteria" />
-    <element value="CV" />
-    <element value="Campaign Materials" />
     <element value="Document" />
     <element value="File" />
+    <element value="Image" />
+    <element value="Link" />
   </property>
-  <property name="global_allow">True</property>
 
   <!-- Schema, class and security -->
-  <property name="add_permission">sinar.representatives.AddRepresentative</property>
-  <property name="klass">sinar.representatives.content.representative.Representative</property>
+  <property name="add_permission">sinar.representatives.AddCv</property>
+  <property name="klass">sinar.representatives.content.cv.Cv</property>
   <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema">sinar.representatives.content.representative.IRepresentative</property>
+  <property name="schema">sinar.representatives.content.cv.ICv</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
@@ -51,17 +50,17 @@
     <!--<element value="plone.app.relationfield.behavior.IRelatedItems"/>-->
     <!--<element value="plone.app.versioningbehavior.behaviors.IVersionable" />-->
     <!--<element value="plone.app.contenttypes.behaviors.tableofcontents.ITableOfContents"/>-->
-    <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>
-    <element value="sinar.popit.behaviors.IPopitPerson"/>
+    <!--<element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>-->
   </property>
 
   <!-- View information -->
-  <property name="add_view_expr">string:${folder_url}/++add++representative</property>
+  <property name="add_view_expr">string:${folder_url}/++add++CV</property>
   <property name="default_view">view</property>
   <property name="default_view_fallback">False</property>
   <property name="immediate_view">view</property>
   <property name="view_methods">
     <element value="view"/>
+    <element value="atct_album_view"/>
   </property>
 
   <!-- Method aliases -->

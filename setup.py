@@ -45,6 +45,10 @@ setup(
         'Products.GenericSetup>=1.8.2',
         'setuptools',
         'z3c.jbot',
+        'plone.app.multilingual',
+        'sinar.popit',
+        'requests',
+        'dateutils',
     ],
     extras_require={
         'test': [

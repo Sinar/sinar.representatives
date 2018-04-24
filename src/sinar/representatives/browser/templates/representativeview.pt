@@ -1,0 +1,142 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="example.conference">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+        <tal:block tal:define="person view/popitperson">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading" tal:content="context/title" />
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription" tal:content="person/summary" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+            <h3>Representing<h3>
+            <h5>Parti Keadilan Rakyat</h5>
+            <img
+            src="https://vignette.wikia.nocookie.net/logopedia/images/0/08/PKR_logo.png/revision/latest/scale-to-width-down/320?cb=20160516053555"
+            />
+
+            <div id="portrait">
+            <tal:block tal:condition="person/image|nothing">
+                <img tal:attributes="src person/image" height="250px"/>
+            </tal:block>
+            <tal:block tal:condition="not: person/image|nothing">
+                <img src="defaultUser.png" height="250px" />
+            </tal:block>
+
+        </div>
+
+        <h3>Biografi</h3>
+        <p tal:content="person/biography">
+        </p>
+
+        <h3>Maklumat Lanjut</h3>
+
+        <div tal:content="structure context/text/output" />
+
+		<h3>Contact Details</h3>
+
+            <dl tal:repeat="detail person/contact_details|nothing">
+
+               <tal:block tal:condition="python: detail['type']=='email'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:
+                 detail['type']=='voice'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:
+                 detail['type']=='address'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:
+                detail['type']=='twitter'">
+                <dt tal:content="detail/label"></dt>
+                <dd>
+                    <a tal:attributes="data-screen-name detail/value"
+                    class="twitter-timeline" href="https://twitter.com/sinarproject"
+                    data-widget-id="609205911387639808"
+                    data-tweet-limit="1"
+                    data-screen-name="sinarproject">Tweets by @sinarproject</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:detail['type']=='facebook'">
+                <dt tal:content="detail/label"></dt>
+                <dd><a tal:attributes="href detail/value"><span>Link</span></a></dd>
+                </tal:block>
+            </dl>
+
+        <span tal:content="python:
+        person['memberships'][0]['organization']['name']"></span>
+
+        </tal:block>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+            <h3>CV</h3>
+
+            <tal:listing tal:condition="view/cv">
+            <ul>
+                <li tal:repeat="item view/cv">
+                    <a href="" tal:attributes="href item/getURL">
+                    <p tal:content="item/Title"></p>
+                    </a>
+                </li>
+            </ul>
+            </tal:listing>
+
+            <h3>Bahan Kempen</h3>
+
+            <tal:listing tal:condition="view/campaign_materials">
+            <ul>
+                <li tal:repeat="item view/campaign_materials">
+                    <a href="" tal:attributes="href item/getURL">
+                    <p tal:content="item/Title"></p>
+                    </a>
+                </li>
+            </ul>
+            </tal:listing>
+
+            <h3>Kriteria Senari Hitam</h3>
+
+            <tal:listing tal:condition="view/blacklist_criteria">
+            <ul>
+                <li tal:repeat="item view/blacklist_criteria">
+                    <a href="" tal:attributes="href item/getURL">
+                    <p tal:content="item/Title"></p>
+                    </a>
+                </li>
+            </ul>
+            </tal:listing>
+
+            <p tal:condition="not: view/blacklist_criteria">Tiada. Calon ini ada CV lengkap, dan
+               tidak ada sejarah kes korupsi, salah guna kuasa
+               atau ucapan benci.</p>
+
+            <h3>Other Notes</h3>
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

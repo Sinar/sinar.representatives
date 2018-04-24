@@ -18,4 +18,20 @@
       directory="static"
       />
 
+  <browser:page
+      name="view"
+      for="sinar.representatives.content.representative.IRepresentative"
+      class="sinar.representatives.content.representative.RepresentativeView"
+      template="templates/representativeview.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="view"
+      for="sinar.representatives.content.parliamentary_seat.IParliamentarySeat"
+      template="templates/parliamentaryseatview.pt"
+      permission="zope2.View"
+      />
+
+
 </configure>

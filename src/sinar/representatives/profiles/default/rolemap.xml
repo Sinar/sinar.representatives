@@ -3,6 +3,46 @@
   <permissions>
   <!-- -*- extra stuff goes here -*- -->
 
+    <permission name="sinar.representatives: Add CampaignMaterials" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+
+        
+    <permission name="sinar.representatives: Add Cv" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+
+        
+    <permission name="sinar.representatives: Add BlacklistCriteria" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+
+        
+    <permission name="sinar.representatives: Add ParliamentarySeat" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+
+        
+    <permission name="sinar.representatives: Add StateSeat" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+
+        
     <permission name="sinar.representatives: Add Representative" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
