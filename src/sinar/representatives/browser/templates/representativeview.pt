@@ -10,13 +10,17 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-        <tal:block tal:define="person view/popitperson">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading" tal:content="context/title" />
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <tal:block 
+            tal:on-error="string: Popit Error Retrieving Represenative
+            Details"
+            tal:define="person view/popitperson">
 
         <p class="documentDescription" tal:content="person/summary" />
 
@@ -38,12 +42,15 @@
         <h3>Biografi</h3>
         <p tal:content="person/biography">
         </p>
+        <p tal:condition="not: person/biography">
+        Tiada maklumat
+        </p>
 
         <h3>Maklumat Lanjut</h3>
 
-        <div tal:content="structure context/text/output" />
+        <div tal:content="structure view/w/text/render | nothing" />
 
-		<h3>Contact Details</h3>
+		<h3>Butiran Kenalan</h3>
 
             <dl tal:repeat="detail person/contact_details|nothing">
 
@@ -63,7 +70,12 @@
                 <dt tal:content="detail/label"></dt>
                 <dd tal:content="detail/value"></dd>
                 </tal:block>
-                
+
+                <tal:block tal:condition="python:detail['type']=='facebook'">
+                <dt tal:content="detail/label"></dt>
+                <dd><a tal:attributes="href detail/value"><span>Link</span></a></dd>
+                </tal:block>
+
                 <tal:block tal:condition="python:
                 detail['type']=='twitter'">
                 <dt tal:content="detail/label"></dt>
@@ -77,14 +89,7 @@
                 </dd>
                 </tal:block>
                 
-                <tal:block tal:condition="python:detail['type']=='facebook'">
-                <dt tal:content="detail/label"></dt>
-                <dd><a tal:attributes="href detail/value"><span>Link</span></a></dd>
-                </tal:block>
             </dl>
-
-        <span tal:content="python:
-        person['memberships'][0]['organization']['name']"></span>
 
         </tal:block>
 
@@ -119,9 +124,14 @@
             <tal:listing tal:condition="view/blacklist_criteria">
             <ul>
                 <li tal:repeat="item view/blacklist_criteria">
-                    <a href="" tal:attributes="href item/getURL">
-                    <p tal:content="item/Title"></p>
-                    </a>
+                    <dl>
+                        <a href="" tal:attributes="href item/absolute_url">
+                        <dt tal:content="item/Title"></dt>
+                        </a>
+                        <dd 
+                    tal:content="structure
+                    item/blacklist_criteria"></dd>
+                    </dl>
                 </li>
             </ul>
             </tal:listing>

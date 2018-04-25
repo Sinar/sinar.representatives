@@ -13,6 +13,7 @@ from sinar.representatives import _
 
 from plone import api
 from Products.Five import BrowserView
+from plone.dexterity.browser.view import DefaultView
 
 from dateutil import parser
 
@@ -58,7 +59,7 @@ class IRepresentative(model.Schema):
     # )
 
 
-class RepresentativeView(BrowserView):
+class RepresentativeView(DefaultView):
    
     def popitperson(self):
 
@@ -90,11 +91,10 @@ class RepresentativeView(BrowserView):
 
     def blacklist_criteria(self):
 
-
         try:
             blacklist_criteria = self.context.listFolderContents(
-                    contentFilter={"portal_type" : "Blacklist Criteria"})[0]
-            return blacklist_criteria.getFolderContents()
+                    contentFilter={"portal_type" : "Blacklist Criteria"})
+            return blacklist_criteria
         
         except:
             return None

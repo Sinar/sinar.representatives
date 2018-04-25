@@ -10,7 +10,7 @@
       name="title">CV</property>
   <property
       i18n:translate=""
-      name="description">Folder containing CV items</property>
+      name="description">CV Files, Details and Links</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">CV</property>
@@ -50,7 +50,7 @@
     <!--<element value="plone.app.relationfield.behavior.IRelatedItems"/>-->
     <!--<element value="plone.app.versioningbehavior.behaviors.IVersionable" />-->
     <!--<element value="plone.app.contenttypes.behaviors.tableofcontents.ITableOfContents"/>-->
-    <!--<element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>-->
+    <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>
   </property>
 
   <!-- View information -->

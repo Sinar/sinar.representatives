@@ -10,24 +10,65 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading" tal:content="context/title" />
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
+        <p class="documentDescription" tal:content="context/description" />
+
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
+
+            <!-- Representative Cards -->
+
             <div tal:condition="context/representative">
+
+                <h3>Calon-Calon</h3>
+
                 <div tal:repeat="representative context/representative">
-                    <a href="" tal:attributes="href
-                    representative/to_object/absolute_url">
-                    <p tal:content="representative/to_object/Title">
-                    </p>
-                    </a>
+                    
+                    <div class="representative-card"
+                        >
+                        <img src="defaultUser.png" height="150px" />
+                        Party logo here
+
+                        <h3
+                            tal:content="representative/to_object/title"></h3>
+
+                        <!-- resources bar -->
+                        <p>CV|FB|Twitter|Email</p>
+
+                        <p
+                            tal:content="representative/to_object/description"></p>
+
+                        <a href="" tal:attributes="href
+                        representative/to_object/absolute_url">
+                        <p>Maklumat lanjut</p>
+                        </a>
+
+                    </div>
                  </div>
             </div>
+
+            <!-- State Seats -->
+
+            <div tal:define="seats context/getFolderContents">
+                <h2 tal:condition="seats">Kerusi Negeri</h2>
+                <ul>
+                    <li tal:repeat="seat seats">
+                        <a href="" tal:attributes="href
+                        seat/getURL">
+                        <p tal:content="seat/Title"></p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        <metal:listingmacro define-macro="listing">
+        </metal:listingmacro>
+        <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </tal:main-macro>
 </metal:main>
