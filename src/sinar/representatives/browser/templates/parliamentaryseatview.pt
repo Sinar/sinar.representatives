@@ -26,19 +26,20 @@
             <div tal:condition="context/representative">
 
                 <h3>Calon-Calon</h3>
+                <p class="documentDescription">Calon-calon yang diketahui untuk kerusi ini</p>
 
                 <div tal:repeat="representative context/representative">
                     
                     <div class="representative-card"
                         >
                         <img src="defaultUser.png" height="150px" />
-                        Party logo here
+                        <p class="discreet">Party logo here</p>
 
                         <h3
                             tal:content="representative/to_object/title"></h3>
 
                         <!-- resources bar -->
-                        <p>CV|FB|Twitter|Email</p>
+                        <p class="discreet">CV|FB|Twitter|Email</p>
 
                         <p
                             tal:content="representative/to_object/description"></p>
