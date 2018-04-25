@@ -46,10 +46,6 @@
         Tiada maklumat
         </p>
 
-        <h3>Maklumat Lanjut</h3>
-
-        <div tal:content="structure view/w/text/render | nothing" />
-
 		<h3>Butiran Kenalan</h3>
 
             <dl tal:repeat="detail person/contact_details|nothing">
@@ -140,7 +136,11 @@
                tidak ada sejarah kes korupsi, salah guna kuasa
                atau ucapan benci.</p>
 
-            <h3>Other Notes</h3>
+        <h3>Maklumat Lanjut</h3>
+
+        <div tal:content="structure context/text/output | nothing" />
+
+
 
     </tal:main-macro>
 </metal:main>
