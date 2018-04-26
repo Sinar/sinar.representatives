@@ -10,17 +10,23 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-
+   
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading" tal:content="context/title" />
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
+        <tal:popit tal:define="person view/popitperson"
+               tal:on-error="string: Popit Connection error">
 
         <p class="documentDescription" 
-           tal:content="view/popitperson/summary | None" >
+           tal:content="person/summary | None" >
         </p>
+
+        </tal:popit>
+
+
 
         <h3>Bertanding di kerusi</h3>
         <ul>
@@ -37,34 +43,47 @@
             <h3>Wakil<h3>
                     <p>On behalf of party and flag here</p>
 
+        
+        <tal:popit tal:define="person view/popitperson"
+               tal:on-error="string: Popit Connection error">
+
             <div id="portrait">
             <tal:block tal:condition="person/image|nothing">
-                <img tal:attributes="src person/image" height="250px"/>
+                <img src="" tal:attributes="src person/image" height="250px" />
             </tal:block>
             <tal:block tal:condition="not: person/image|nothing">
                 <img src="defaultUser.png" height="250px" />
             </tal:block>
 
-        </div>
+            </div>
+
+        </tal:popit>
 
         <h3>Keterengan dan Janji</h3>
         <p tal:content="structure context/promises/output | nothing">
         </p>
 
         <h3>Biografi</h3>
-        <p tal:content="view/popitperson/biography | None">
+        <tal:popit tal:define="person view/popitperson"
+               tal:on-error="string: Popit Connection error">
+
+        <p tal:content="person/biography | None">
         </p>
-        <p tal:condition="not: view/popitperson/biography | None">
+        <p tal:condition="not: person/biography | None">
         Tiada maklumat
         </p>
+        </tal:popit>
 
 		<h3>Butiran Kenalan</h3>
 
-        <p tal:condition="not: view/popitperson/contact_details| None">
+        <tal:popit tal:define="person view/popitperson"
+               tal:on-error="string: Popit Connection error">
+
+        <p tal:condition="not: person/contact_details| None">
         Tiada maklumat
          </p>
 
-            <dl tal:repeat="detail view/popitperson/contact_details|nothing">
+            <dl tal:repeat="detail person/contact_details|nothing">
 
                <tal:block tal:condition="python: detail['type']=='email'">
                 <dt tal:content="detail/label"></dt>
@@ -102,6 +121,8 @@
                 </tal:block>
                 
             </dl>
+
+        </tal:popit>
 
 
         <div tal:replace="structure provider:plone.belowcontentbody" />

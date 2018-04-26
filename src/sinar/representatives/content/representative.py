@@ -70,7 +70,7 @@ class IRepresentative(model.Schema):
     # )
 
 
-class RepresentativeView(DefaultView):
+class RepresentativeView(BrowserView):
    
     def popitperson(self):
 
@@ -111,7 +111,6 @@ class RepresentativeView(DefaultView):
             return None
 
     def cv(self):
-
 
         try:
             cv = self.context.listFolderContents(
