@@ -29,9 +29,18 @@
   <browser:page
       name="view"
       for="sinar.representatives.content.parliamentary_seat.IParliamentarySeat"
+      class="sinar.representatives.content.parliamentary_seat.ParliamentarySeatView"
       template="templates/parliamentaryseatview.pt"
       permission="zope2.View"
       />
+
+  <browser:page
+      name="view"
+      for="sinar.representatives.content.state_seat.IStateSeat"
+      template="templates/stateseatview.pt"
+      permission="zope2.View"
+      />
+
 
 
 </configure>

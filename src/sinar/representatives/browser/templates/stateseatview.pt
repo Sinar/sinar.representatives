@@ -10,6 +10,19 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
+       
+        <!-- Parlimen Seats -->
+
+            <div tal:define="par context/aq_parent">
+                <h3 tal:condition="context/aq_parent">Kerusi
+                    Parlimen</h3>
+                <a href=""
+                   tal:attributes="href context/aq_parent/absolute_url">
+                <p tal:content="context/aq_parent/title"></p>
+                </a>
+                <hr />
+            </div>
+
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading" tal:content="context/title" />
@@ -20,21 +33,17 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-
-            <!-- Representative Cards -->
+            <!-- State Representative Cards -->
 
             <div tal:condition="context/representative">
 
                 <h3>Calon-Calon</h3>
                 <p class="documentDescription">Calon-calon yang diketahui untuk kerusi ini</p>
 
-
                 <div tal:repeat="representative context/representative">
+                    
+                    <div class="representative-card">
 
-                   
-                    <div class="representative-card"
-                        >
-                        
                         <img 
                         tal:condition="representative/to_object/image"
                         tal:attributes="src
@@ -58,10 +67,10 @@
                                 Disenarai Hitam
                                 </span>
                             </div>
- 
-                        <!-- resources bar -->
 
-                        <p tal:content="representative/to_object/description"></p>
+
+                        <p
+                            tal:content="representative/to_object/description"></p>
 
                         <a href="" tal:attributes="href
                         representative/to_object/absolute_url">
@@ -72,22 +81,7 @@
                  </div>
             </div>
 
-            <!-- State Seats -->
-
-            <div tal:define="seats context/getFolderContents">
-                <h2 tal:condition="seats">Kerusi Negeri</h2>
-                <ul>
-                    <li tal:repeat="seat seats">
-                        <a href="" tal:attributes="href
-                        seat/getURL">
-                        <p tal:content="seat/Title"></p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
             <hr />
-
             <p class="discreet">
                Ini adalah maklumat yang diketahui setakat ini
             </p>
@@ -98,8 +92,6 @@
             <a href="mailto:ge14@sinarproject">ge14@sinarproject.org</a> atau tweet dan tag @sinarproject dengan
             kerusi, nama calon.
             </p>
-
-
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </tal:main-macro>

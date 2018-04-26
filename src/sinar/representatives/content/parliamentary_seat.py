@@ -9,6 +9,7 @@ from z3c.form.browser.radio import RadioFieldWidget
 from zope import schema
 from z3c.relationfield.schema import RelationList
 from zope.interface import implementer
+from plone.dexterity.browser.view import DefaultView
 from sinar.representatives import _
 
 
@@ -56,6 +57,23 @@ class IParliamentarySeat(model.Schema):
     #     required=False
     # )
 
+class ParliamentarySeatView(DefaultView):
+
+    def representatives(self):
+
+        representatives = self.context.representative
+
+        persons = []
+
+        for representative in representatives:
+          
+            obj = representative.to_object
+
+            person = obj.Subject
+            
+            persons.append(person) 
+
+        return persons
 
 @implementer(IParliamentarySeat)
 class ParliamentarySeat(Container):

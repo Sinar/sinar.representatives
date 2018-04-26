@@ -22,9 +22,19 @@
            tal:content="view/popitperson/summary | None" >
         </p>
 
+        <h3>Bertanding di kerusi</h3>
+        <ul>
+            <li tal:repeat="seat view/seats">
+                <a href="" tal:attributes="href seat/absolute_url">
+                <span tal:content="seat/title">N31 Subang
+                Jaya</span>
+                </a>
+           </li>
+        </ul>
+
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-            <h3>Representing<h3>
+            <h3>Wakil<h3>
                     <p>On behalf of party and flag here</p>
 
             <div id="portrait">
