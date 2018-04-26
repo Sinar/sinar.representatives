@@ -79,7 +79,7 @@ class RepresentativeView(BrowserView):
         person_raw = requests.get(
                 'http://api.popit.sinarproject.org/' +
                 language + '/persons/' + 
-                self.context.popit_personid + '?minify=false')
+                self.context.popit_personid)
 
         person_json = json.loads(person_raw.content)
 
