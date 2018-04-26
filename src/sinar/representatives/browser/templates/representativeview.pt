@@ -177,6 +177,19 @@
 
         <div tal:content="structure context/text/output | nothing" />
 
+        <hr />
+            <p class="discreet">
+               Ini adalah maklumat yang diketahui setakat ini
+            </p>
+
+            <p class="callout">
+            Jika ada maklumat calon atau pembetulan 
+            sila hubungi kami melalui email
+            <a href="mailto:ge14@sinarproject">ge14@sinarproject.org</a> atau tweet dan tag @sinarproject dengan
+            kerusi, nama calon.
+            </p>
+
+
     </tal:main-macro>
 </metal:main>
 
