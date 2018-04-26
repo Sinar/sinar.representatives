@@ -17,12 +17,10 @@
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <tal:block 
-            tal:on-error="string: Popit Error Retrieving Represenative
-            Details"
-            tal:define="person view/popitperson">
 
-        <p class="documentDescription" tal:content="person/summary" />
+        <p class="documentDescription" 
+           tal:content="view/popitperson/summary | None" >
+        </p>
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
@@ -39,16 +37,24 @@
 
         </div>
 
-        <h3>Biografi</h3>
-        <p tal:content="person/biography">
+        <h3>Keterengan dan Janji</h3>
+        <p tal:content="structure context/promises/output | nothing">
         </p>
-        <p tal:condition="not: person/biography">
+
+        <h3>Biografi</h3>
+        <p tal:content="view/popitperson/biography | None">
+        </p>
+        <p tal:condition="not: view/popitperson/biography | None">
         Tiada maklumat
         </p>
 
 		<h3>Butiran Kenalan</h3>
 
-            <dl tal:repeat="detail person/contact_details|nothing">
+        <p tal:condition="not: view/popitperson/contact_details| None">
+        Tiada maklumat
+         </p>
+
+            <dl tal:repeat="detail view/popitperson/contact_details|nothing">
 
                <tal:block tal:condition="python: detail['type']=='email'">
                 <dt tal:content="detail/label"></dt>
@@ -87,7 +93,6 @@
                 
             </dl>
 
-        </tal:block>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
@@ -132,15 +137,14 @@
             </ul>
             </tal:listing>
 
-            <p tal:condition="not: view/blacklist_criteria">Tiada. Calon ini ada CV lengkap, dan
+            <p tal:condition="not: view/blacklist_criteria"> 
+               Calon ini
                tidak ada sejarah kes korupsi, salah guna kuasa
                atau ucapan benci.</p>
 
         <h3>Maklumat Lanjut</h3>
 
         <div tal:content="structure context/text/output | nothing" />
-
-
 
     </tal:main-macro>
 </metal:main>

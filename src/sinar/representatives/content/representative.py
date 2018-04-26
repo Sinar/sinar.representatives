@@ -30,6 +30,11 @@ class IRepresentative(model.Schema):
     #     required=True
     # )
 
+    promises = RichText(
+         title=_(u'Ucapan dan Janji'),
+         required=False
+     )
+
     # text = RichText(
     #     title=_(u'Text'),
     #     required=False
