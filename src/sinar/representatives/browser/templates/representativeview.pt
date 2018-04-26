@@ -135,6 +135,15 @@
                 
             </dl>
 
+            <dl tal:repeat="detail person/links|nothing">
+                <dt>
+                    <a href=""
+                       tal:attributes="href detail/url">
+                    <span tal:content="detail/note"></span>
+                    </a>
+                </dt>
+            </dl>
+
         </tal:popit>
 
 
