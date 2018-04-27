@@ -65,6 +65,19 @@
                                 Disenarai Hitam
                                 </span>
                             </div>
+                            <div tal:repeat="blacklist
+                                     representative/to_object/Subject"
+                                    style="padding-bottom: 5px;">
+                                                <span tal:condition="python:
+                                    blacklist=='fakecv'"
+                                         style="background:red;
+                                         color:white;
+                                         padding:0.2em;">
+                                   Ijazah Tiruan / CV Tidak Benar
+                                    </span>
+                                 </div>
+
+ 
  
                         <!-- resources bar -->
 

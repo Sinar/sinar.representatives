@@ -15,14 +15,24 @@
 
             <div tal:repeat="blacklist context/Subject"
                 style="padding-bottom: 5px;">
-
-                <span tal:condition="python: blacklist=='blacklisted'"
+                            <span tal:condition="python: blacklist=='blacklisted'"
                      style="background:#000000;
                      color:white;
                      padding:0.2em;">
                 Disenarai Hitam
                 </span>
-            </div>
+             </div>
+            <div tal:repeat="blacklist context/Subject"
+                style="padding-bottom: 5px;">
+                            <span tal:condition="python:
+                blacklist=='fakecv'"
+                     style="background:red;
+                     color:white;
+                     padding:0.2em;">
+               Ijazah Tiruan / CV Tidak Benar
+                </span>
+             </div>
+
 
 
 
