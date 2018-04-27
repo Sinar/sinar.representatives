@@ -41,8 +41,6 @@
                         string:${representative/to_object/absolute_url}/@@images/image/thumb"
                         />
 
-
-                      
                         <img 
                         tal:condition="not:
                         representative/to_object/image"
