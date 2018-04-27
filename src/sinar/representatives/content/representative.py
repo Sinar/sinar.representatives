@@ -145,8 +145,8 @@ class RepresentativeView(DefaultView):
 
         try:
             cv = self.context.listFolderContents(
-                    contentFilter={"portal_type" : "CV"})[0]
-            return cv.getFolderContents()
+                    contentFilter={"portal_type" : "CV"})
+            return cv
         
         except:
             return None

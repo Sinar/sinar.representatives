@@ -9,34 +9,31 @@ from z3c.form.browser.radio import RadioFieldWidget
 from zope import schema
 from zope.interface import implementer
 from sinar.representatives import _
-
+from plone.namedfile.field import NamedBlobFile
 
 class ICv(model.Schema):
     """ Marker interface and Dexterity Python Schema for Cv
     """
-
-    # directives.widget(level=RadioFieldWidget)
-    # level = schema.Choice(
-    #     title=_(u'Sponsoring Level'),
-    #     vocabulary=LevelVocabulary,
-    #     required=True
-    # )
 
     # text = RichText(
     #     title=_(u'Text'),
     #     required=False
     # )
 
-    # url = schema.URI(
-    #     title=_(u'Link'),
-    #     required=False
-    # )
+    url = schema.URI(
+         title=_(u'Link'),
+         required=False
+    )
 
-    # fieldset('Images', fields=['logo', 'advertisement'])
-    # logo = namedfile.NamedBlobImage(
-    #     title=_(u'Logo'),
-    #     required=False,
-    # )
+    attachment = NamedBlobFile(
+            title=_(u'File'),
+            required=False,
+            )
+
+    civimage = namedfile.NamedBlobImage(
+        title=_(u'Image'),
+        required=False,
+    )
 
     # advertisement = namedfile.NamedBlobImage(
     #     title=_(u'Advertisement (Gold-sponsors and above)'),

@@ -168,15 +168,20 @@
 
             <h3>CV</h3>
 
-            <tal:listing tal:condition="view/cv">
-            <ul>
-                <li tal:repeat="item view/cv">
-                    <a href="" tal:attributes="href item/getURL">
-                    <p tal:content="item/Title"></p>
+            <tal:listing tal:condition="view/cv"
+             tal:repeat="item view/cv">
+            <p>
+                    <a href="" tal:attributes="href item/absolute_url">
+                        <span tal:content="item/Title"></span>
                     </a>
-                </li>
-            </ul>
+            </p>
             </tal:listing>
+
+            <p tal:condition="not: view/cv">
+                       Tiada CV yang diketahui
+            </p>
+
+
 
             <h3>Bahan Kempen</h3>
 
