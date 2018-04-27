@@ -24,6 +24,23 @@ from zope.component import getUtility
 from zope.intid.interfaces import IIntIds
 from zope.security import checkPermission
 from zc.relation.interfaces import ICatalog
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+
+political_party = SimpleVocabulary([
+        SimpleTerm(value=u'bn', title=_(u'Barisan Nasional')),
+        SimpleTerm(value=u'pkr', title=_(u'Parti Keadilan Rakyat')),
+        SimpleTerm(value=u'psm', title=_(u'Parti Sosialis Malaysia')),
+        SimpleTerm(value=u'pas', title=_(u'Parti Islam Se-Malaysia')),]
+        SimpleTerm(value=u'warisan', title=_(u'Warisan')),]
+        )
+
+logo = SimpleVocabulary([
+        SimpleTerm(value=u'bn', title=_(u'Barisan Nasional')),
+        SimpleTerm(value=u'pkr', title=_(u'Parti Keadilan Rakyat')),
+        SimpleTerm(value=u'psm', title=_(u'Parti Sosialis Malaysia')),
+        SimpleTerm(value=u'pas', title=_(u'Parti Islam Se-Malaysia')),]
+        SimpleTerm(value=u'warisan', title=_(u'Warisan')),]
+        )
 
 class IRepresentative(model.Schema):
     """ Marker interface and Dexterity Python Schema for Representative
@@ -35,6 +52,20 @@ class IRepresentative(model.Schema):
     #     vocabulary=LevelVocabulary,
     #     required=True
     # )
+
+    political_party = schema.Choice(
+            title = _(u'Mewakili Parti Politik'),
+            vocabulary = political_party,
+            required=False,
+            )
+
+    logo = schema.Choice(
+            title = _(u'Logo Party'),
+            vocabulary = logo,
+            required=False,
+            )
+
+
 
     promises = RichText(
          title=_(u'Ucapan dan Janji'),
@@ -70,7 +101,7 @@ class IRepresentative(model.Schema):
     # )
 
 
-class RepresentativeView(BrowserView):
+class RepresentativeView(DefaultView):
    
     def popitperson(self):
 

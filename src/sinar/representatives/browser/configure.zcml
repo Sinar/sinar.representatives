@@ -18,6 +18,11 @@
       directory="static"
       />
 
+  <browser:resourceDirectory
+      name="sinar.representatives"
+      directory="static"
+      />
+
   <browser:page
       name="view"
       for="sinar.representatives.content.representative.IRepresentative"
