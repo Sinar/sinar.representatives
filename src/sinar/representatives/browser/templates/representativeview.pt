@@ -89,7 +89,7 @@
              tal:attributes="src
                 string:${context/@@plone_portal_state/portal_url}/++resource++sinar.representatives/${logo}-200px.png"/>
   
-        <h3>Keterengan dan Janji</h3>
+        <h3>Kenyataan dan Janji</h3>
         <p tal:content="structure context/promises/output | nothing">
         </p>
 
