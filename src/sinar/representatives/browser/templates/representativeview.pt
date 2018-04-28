@@ -195,7 +195,7 @@
             </ul>
             </tal:listing>
 
-            <h3>Kriteria Senari Hitam</h3>
+            <h3>Kriteria Senarai Hitam</h3>
 
             <tal:listing tal:condition="view/blacklist_criteria">
             <ul>
