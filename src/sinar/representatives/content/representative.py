@@ -29,6 +29,7 @@ from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 political_party = SimpleVocabulary([
         SimpleTerm(value=u'bn', title=_(u'Barisan Nasional')),
         SimpleTerm(value=u'pkr', title=_(u'Parti Keadilan Rakyat')),
+        SimpleTerm(value=u'prm', title=_(u'Parti Rakyat Malaysia')),
         SimpleTerm(value=u'psm', title=_(u'Parti Sosialis Malaysia')),
         SimpleTerm(value=u'pas', title=_(u'Parti Islam Se-Malaysia')),
         SimpleTerm(value=u'warisan', title=_(u'Warisan')),]
@@ -37,6 +38,7 @@ political_party = SimpleVocabulary([
 logo = SimpleVocabulary([
         SimpleTerm(value=u'bn', title=_(u'Barisan Nasional')),
         SimpleTerm(value=u'pkr', title=_(u'Parti Keadilan Rakyat')),
+        SimpleTerm(value=u'prm', title=_(u'Parti Rakyat Malaysia')),
         SimpleTerm(value=u'psm', title=_(u'Parti Sosialis Malaysia')),
         SimpleTerm(value=u'pas', title=_(u'Parti Islam Se-Malaysia')),
         SimpleTerm(value=u'warisan', title=_(u'Warisan')),]
