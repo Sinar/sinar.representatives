@@ -46,6 +46,7 @@ logo = SimpleVocabulary([
         SimpleTerm(value=u'psm', title=_(u'Parti Sosialis Malaysia')),
         SimpleTerm(value=u'warisan', title=_(u'Warisan')),
         SimpleTerm(value=u'bebas-arnab', title=_(u'Bebas Arnab')),
+        SimpleTerm(value=u'bebas-gajah', title=_(u'Bebas Gajah')),
         SimpleTerm(value=u'bebas-kunci', title=_(u'Bebas Kunci')),
         SimpleTerm(value=u'bebas-udang', title=_(u'Bebas Udang'))],
         )
