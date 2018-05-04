@@ -28,13 +28,29 @@ from zc.relation.interfaces import ICatalog
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
 logo = SimpleVocabulary([
-        SimpleTerm(value=u'bn', title=_(u'Barisan Nasional')),
-        SimpleTerm(value=u'pbsm', title=_(u'Parti Bersama Malaysia')),
-        SimpleTerm(value=u'pas', title=_(u'Parti Islam Se-Malaysia')),
-        SimpleTerm(value=u'pkr', title=_(u'Parti Keadilan Rakyat')),
+        SimpleTerm(value=u'bn', title=_(u'barisan nasional')),
         SimpleTerm(value=u'bjis', title=(u'Barisan Jemaah Islamiah Se-Malaysia')),
+        SimpleTerm(value=u'par', title=_(u'Parti Alternative Rakyat')),
+        SimpleTerm(value=u'amanah', title=_(u'Parti Amanah Negara')),
+        SimpleTerm(value=u'pbds', title=_(u'Parti Bansa Dayak Sarawak')),
+        SimpleTerm(value=u'pbk', title=_(u'Parti Bumi Kenyalang')),
+        SimpleTerm(value=u'pcm', title=_(u'Parti Cinta Malaysia')),
+        SimpleTerm(value=u'pcs', title=_(u'Parti Cinta Sabah')),
+        SimpleTerm(value=u'phrs', title=_(u'Parti Harapan Rakyat Sabah')),
+        SimpleTerm(value=u'pkan', title=_(u'Parti Kerjasama Anak Negeri')),
+        SimpleTerm(value=u'pms', title=_(u'Parti Maju Sabah')),
+        SimpleTerm(value=u'pprs', title=_(u'Parti Perpaduan Rakyat Sabah')),
+        SimpleTerm(value=u'prgjp', title=_(u'Parti Rakyat Gabungan Jaksa Pendamai')),
+        SimpleTerm(value=u'prn', title=_(u'Parti Reformasi Negeri')),
+        SimpleTerm(value=u'ppsta', title=_(u'Parti Solidariti Tanah Airku')),
+        SimpleTerm(value=u'pnp', title=_(u'Penang Front Party')),
+        SimpleTerm(value=u'pprks', title=_(u'Pertubuhan Perpaduan Rakyat Kebangsaan Sabah')),
+        SimpleTerm(value=u'pbsm', title=_(u'Parti Bersama Malaysia')),
+        SimpleTerm(value=u'pas', title=_(u'Parti Islam Se-Malaysia (PAS)')),
+        SimpleTerm(value=u'pkr', title=_(u'Parti Keadilan Rakyat')),
         SimpleTerm(value=u'prm', title=_(u'Parti Rakyat Malaysia')),
-        SimpleTerm(value=u'psm', title=_(u'Parti Sosialis Malaysia')),
+        SimpleTerm(value=u'psm', title=_(u'Parti Sosialis Malaysia (PSM)')),
+        SimpleTerm(value=u'dap', title=_(u'Parti Tindakan Demokratik (DAP)')),
         SimpleTerm(value=u'warisan', title=_(u'Warisan')),
         SimpleTerm(value=u'bebas-arnab', title=_(u'Bebas Arnab')),
         SimpleTerm(value=u'bebas-gajah', title=_(u'Bebas Gajah')),
@@ -43,6 +59,7 @@ logo = SimpleVocabulary([
         SimpleTerm(value=u'bebas-traktor', title=_(u'Bebas Traktor')),
         SimpleTerm(value=u'bebas-udang', title=_(u'Bebas Udang'))],
         )
+
 
 class IRepresentative(model.Schema):
 
