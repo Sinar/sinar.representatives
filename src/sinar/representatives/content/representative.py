@@ -53,6 +53,7 @@ logo = SimpleVocabulary([
         SimpleTerm(value=u'dap', title=_(u'Parti Tindakan Demokratik (DAP)')),
         SimpleTerm(value=u'warisan', title=_(u'Warisan')),
         SimpleTerm(value=u'bebas-arnab', title=_(u'Bebas Arnab')),
+        SimpleTerm(value=u'bebas-cawan', title=_(u'Bebas Cawan')),
         SimpleTerm(value=u'bebas-gajah', title=_(u'Bebas Gajah')),
         SimpleTerm(value=u'bebas-pen', title=_(u'Bebas Pen')),
         SimpleTerm(value=u'bebas-kunci', title=_(u'Bebas Kunci')),
