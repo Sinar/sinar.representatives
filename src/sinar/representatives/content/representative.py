@@ -27,7 +27,7 @@ from zc.relation.interfaces import ICatalog
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
 logo = SimpleVocabulary([
-        SimpleTerm(value=u'bn', title=_(u'barisan nasional')),
+        SimpleTerm(value=u'bn', title=_(u'Barisan Nasional')),
         SimpleTerm(value=u'bjis', title=(u'Barisan Jemaah Islamiah \
                                            Se-Malaysia')),
         SimpleTerm(value=u'par', title=_(u'Parti Alternative Rakyat')),
@@ -61,6 +61,7 @@ logo = SimpleVocabulary([
         SimpleTerm(value=u'bebas-cawan', title=_(u'Bebas Cawan')),
         SimpleTerm(value=u'bebas-gajah', title=_(u'Bebas Gajah')),
         SimpleTerm(value=u'bebas-pen', title=_(u'Bebas Pen')),
+        SimpleTerm(value=u'bebas-kereta', title=_(u'Bebas Kereta')),
         SimpleTerm(value=u'bebas-kunci', title=_(u'Bebas Kunci')),
         SimpleTerm(value=u'bebas-rumah', title=_(u'Bebas Rumah')),
         SimpleTerm(value=u'bebas-traktor', title=_(u'Bebas Traktor')),
