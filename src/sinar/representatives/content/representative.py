@@ -63,6 +63,7 @@ logo = SimpleVocabulary([
         SimpleTerm(value=u'bebas-ikan', title=_(u'Bebas Ikan')),
         SimpleTerm(value=u'bebas-pen', title=_(u'Bebas Pen')),
         SimpleTerm(value=u'bebas-kereta', title=_(u'Bebas Kereta')),
+        SimpleTerm(value=u'bebas-kerusi', title=_(u'Bebas Kerusi')),
         SimpleTerm(value=u'bebas-kunci', title=_(u'Bebas Kunci')),
         SimpleTerm(value=u'bebas-rumah', title=_(u'Bebas Rumah')),
         SimpleTerm(value=u'bebas-telefon', title=_(u'Bebas Telefon')),
