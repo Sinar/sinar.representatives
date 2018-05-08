@@ -204,16 +204,21 @@ class RepresentativeView(DefaultView):
 
         result = []
 
-        for rel in catalog.findRelations(
-                    dict(to_id=intids.getId(aq_inner(source_object)),
-                         from_attribute=attribute_name)
-                ):
-            obj = intids.queryObject(rel.from_id)
+        try:
 
-            if obj is not None and checkPermission('zope2.View', obj):
-                result.append(obj)
+            for rel in catalog.findRelations(
+                        dict(to_id=intids.getId(aq_inner(source_object)),
+                             from_attribute=attribute_name)
+                    ):
+                obj = intids.queryObject(rel.from_id)
 
-        return result
+                if obj is not None and checkPermission('zope2.View', obj):
+                    result.append(obj)
+
+            return result
+
+        except:
+            pass
 
     # unused
     def contracts(self):
