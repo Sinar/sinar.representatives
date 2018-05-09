@@ -1,26 +1,72 @@
-README for sinar.representatives
-================================
+.. This README is meant for consumption by humans and pypi. Pypi can render rst files so please do not use Sphinx features.
+   If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
+   This text does not appear on pypi or github. It is a comment.
 
-Base content for generic multilingual representative content types, to 
-build website for electoral represenatives. 
+=====================
+sinar.representatives
+=====================
 
-It connects with Popit for standard set of fields based on Popolo
-standard.
+Tell me what your product does
 
-Extensions
+Features
+--------
+
+- Can be bullet points
+
+
+Examples
+--------
+
+This add-on can be seen in action at the following sites:
+- Is there a page on the internet where everybody can see the features?
+
+
+Documentation
+-------------
+
+Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+
+
+Translations
+------------
+
+This product has been translated into
+
+- Klingon (thanks, K'Plai)
+
+
+Installation
+------------
+
+Install sinar.representatives by adding it to your buildout::
+
+    [buildout]
+
+    ...
+
+    eggs =
+        sinar.representatives
+
+
+and then running ``bin/buildout``
+
+
+Contribute
 ----------
 
-To extend this, it is recommended that developers create dexterity
-behaviours and then assign it to this.
+- Issue Tracker: https://github.com/collective/sinar.representatives/issues
+- Source Code: https://github.com/collective/sinar.representatives
+- Documentation: https://docs.plone.org/foo/bar
 
-Credits
+
+Support
 -------
 
-- Addtional development including multilingual support funded by SEATTI
-  grant.
+If you are having issues, please let us know.
+We have a mailing list located at: project@example.com
 
 
-- Popit based rewrite funded by Poplus grant.
-- Original development funded by ISIF Asia grant.
+License
+-------
 
-
+The project is licensed under the GPLv2.

@@ -1,0 +1,244 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="example.conference">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+   
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+            <div tal:repeat="blacklist context/Subject"
+                style="padding-bottom: 5px;">
+                            <span tal:condition="python: blacklist=='blacklisted'"
+                     style="background:#000000;
+                     color:white;
+                     padding:0.2em;">
+                Disenarai Hitam
+                </span>
+             </div>
+            <div tal:repeat="blacklist context/Subject"
+                style="padding-bottom: 5px;">
+                            <span tal:condition="python:
+                blacklist=='fakecv'"
+                     style="background:red;
+                     color:white;
+                     padding:0.2em;">
+               Ijazah Tiruan / CV Tidak Benar
+                </span>
+             </div>
+
+
+
+
+        <h1 class="documentFirstHeading" tal:content="context/title" />
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <tal:popit tal:define="person view/popitperson"
+               tal:on-error="string: Popit Connection error">
+
+        <p class="documentDescription" 
+           tal:content="person/summary | None" >
+        </p>
+
+        </tal:popit>
+
+
+
+        <h3>Bertanding di kerusi</h3>
+        <ul>
+            <li tal:repeat="seat view/seats">
+                <a href="" tal:attributes="href seat/absolute_url">
+                <span tal:content="seat/title">N31 Subang
+                Jaya</span>
+                </a>
+           </li>
+        </ul>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <tal:popit tal:define="person view/popitperson"
+               tal:on-error="string: Popit Connection error">
+
+            <div id="portrait">
+            <tal:block tal:condition="person/image|nothing">
+                <img src="" tal:attributes="src person/image" width="200px" />
+            </tal:block>
+            <tal:block tal:condition="not: person/image|nothing">
+                <img src="defaultUser.png" width="250px" />
+            </tal:block>
+          
+            </div>
+
+        </tal:popit>
+
+        <p tal:content="structure view/w/political_party/render"></p>
+        <p  tal:condition="not: context/political_party">
+            Calon Bebas
+        </p>
+        <img 
+             src=""
+             tal:condition="context/logo"
+             tal:define="logo context/logo"
+             tal:attributes="src
+                string:${context/@@plone_portal_state/portal_url}/++resource++sinar.representatives/${logo}-200px.png"/>
+  
+        <h3>Kenyataan dan Janji</h3>
+        <p tal:content="structure context/promises/output | nothing">
+        </p>
+
+        <h3>Biografi</h3>
+        <tal:popit tal:define="person view/popitperson"
+               tal:on-error="string: Popit Connection error">
+
+        <p tal:content="person/biography | None">
+        </p>
+        <p tal:condition="not: person/biography | None">
+        Tiada maklumat
+        </p>
+        </tal:popit>
+
+		<h3>Butiran Kenalan</h3>
+
+        <tal:popit tal:define="person view/popitperson"
+               tal:on-error="string: Popit Connection error">
+
+        <p tal:condition="not: person/contact_details| None">
+        Tiada maklumat
+         </p>
+
+            <dl tal:repeat="detail person/contact_details|nothing">
+
+               <tal:block tal:condition="python: detail['type']=='email'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:
+                 detail['type']=='voice'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+                
+                <tal:block tal:condition="python:
+                 detail['type']=='address'">
+                <dt tal:content="detail/label"></dt>
+                <dd tal:content="detail/value"></dd>
+                </tal:block>
+
+                <tal:block tal:condition="python:detail['type']=='facebook'">
+                <dt tal:content="detail/label"></dt>
+                <dd><a tal:attributes="href detail/value"><span>Link</span></a></dd>
+                </tal:block>
+
+                <tal:block tal:condition="python:
+                detail['type']=='twitter'">
+                <dt tal:content="detail/label"></dt>
+                <dd>
+                    <a tal:attributes="data-screen-name detail/value"
+                    class="twitter-timeline" href="https://twitter.com/sinarproject"
+                    data-widget-id="609205911387639808"
+                    data-tweet-limit="1"
+                    data-screen-name="sinarproject">Tweets by @sinarproject</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </dd>
+                </tal:block>
+                
+            </dl>
+
+            <dl tal:repeat="detail person/links|nothing">
+                <dt>
+                    <a href=""
+                       tal:attributes="href detail/url">
+                    <span tal:content="detail/note"></span>
+                    </a>
+                </dt>
+            </dl>
+
+        </tal:popit>
+
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+            <h3>CV</h3>
+
+            <tal:listing tal:condition="view/cv"
+             tal:repeat="item view/cv">
+            <p>
+                    <a href="" tal:attributes="href item/absolute_url">
+                        <span tal:content="item/Title"></span>
+                    </a>
+            </p>
+            </tal:listing>
+
+            <p tal:condition="not: view/cv">
+                       Tiada CV yang diketahui
+            </p>
+
+
+
+            <h3>Bahan Kempen</h3>
+
+            <tal:listing tal:condition="view/campaign_materials">
+            <ul>
+                <li tal:repeat="item view/campaign_materials">
+                    <a href="" tal:attributes="href item/getURL">
+                    <p tal:content="item/Title"></p>
+                    </a>
+                </li>
+            </ul>
+            </tal:listing>
+
+            <h3>Kriteria Senarai Hitam</h3>
+
+            <tal:listing tal:condition="view/blacklist_criteria">
+            <ul>
+                <li tal:repeat="item view/blacklist_criteria">
+                    <dl>
+                        <a href="" tal:attributes="href item/absolute_url">
+                        <dt tal:content="item/Title"></dt>
+                        </a>
+                        <dd 
+                    tal:content="structure
+                    item/blacklist_criteria"></dd>
+                    </dl>
+                </li>
+            </ul>
+            </tal:listing>
+
+            <p tal:condition="not: view/blacklist_criteria"> 
+               Calon ini
+               tidak ada sejarah kes korupsi, salah guna kuasa
+               atau ucapan benci.</p>
+
+        <h3>Maklumat Lanjut</h3>
+
+        <div tal:content="structure context/text/output | nothing" />
+
+        <hr />
+            <p class="discreet">
+               Ini adalah maklumat yang diketahui setakat ini
+            </p>
+
+            <p class="callout">
+            Jika ada maklumat calon atau pembetulan boleh isi 
+            <a
+               href="https://docs.google.com/forms/d/e/1FAIpQLSfXZXyEumZB2pMRw-OU6RMqISCN6d6Z4WxuCKiOnfcEmipZwg/viewform">
+                borang online ini </a> atau
+            sila hubungi kami melalui email
+            <a href="mailto:ge14@sinarproject">ge14@sinarproject.org</a> atau tweet dan tag @sinarproject dengan
+            kerusi, nama calon.
+            </p>
+
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

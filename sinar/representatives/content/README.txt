@@ -1,1 +1,0 @@
-Register content types here

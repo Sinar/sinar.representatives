@@ -1,0 +1,48 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="plone">
+
+  <configure zcml:condition="installed AccessControl.security">
+  <!-- -*- extra stuff goes here -*- -->
+
+    <permission
+        id="sinar.representatives.AddCampaignMaterials"
+        title="sinar.representatives: Add CampaignMaterials"
+    />
+
+        
+    <permission
+        id="sinar.representatives.AddCv"
+        title="sinar.representatives: Add Cv"
+    />
+
+        
+    <permission
+        id="sinar.representatives.AddBlacklistCriteria"
+        title="sinar.representatives: Add BlacklistCriteria"
+    />
+
+        
+    <permission
+        id="sinar.representatives.AddParliamentarySeat"
+        title="sinar.representatives: Add ParliamentarySeat"
+    />
+
+        
+    <permission
+        id="sinar.representatives.AddStateSeat"
+        title="sinar.representatives: Add StateSeat"
+    />
+
+        
+    <permission
+        id="sinar.representatives.AddRepresentative"
+        title="sinar.representatives: Add Representative"
+    />
+
+        
+
+  </configure>
+
+</configure>

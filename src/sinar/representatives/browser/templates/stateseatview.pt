@@ -1,0 +1,121 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="example.conference">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+       
+        <!-- Parlimen Seats -->
+
+            <div tal:define="par context/aq_parent">
+                <h3 tal:condition="context/aq_parent">Kerusi
+                    Parlimen</h3>
+                <a href=""
+                   tal:attributes="href context/aq_parent/absolute_url">
+                <p tal:content="context/aq_parent/title"></p>
+                </a>
+                <hr />
+            </div>
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading" tal:content="context/title" />
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription" tal:content="context/description" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+            <!-- State Representative Cards -->
+
+            <div tal:condition="context/representative">
+
+                <h3>Calon-Calon</h3>
+                <p class="documentDescription">Calon-calon yang diketahui untuk kerusi ini</p>
+
+                <div tal:repeat="representative context/representative">
+                    
+                    <div class="representative-card">
+
+                        <img 
+                            tal:condition="representative/to_object/image"
+                            tal:attributes="src
+                            string:${representative/to_object/absolute_url}/@@images/image/thumb"
+                            />
+
+                        <img 
+                        tal:condition="not:
+                        representative/to_object/image"
+                        src="defaultUser.png" width="128px" />
+
+                      
+                        <img 
+                             src=""
+                             tal:condition="representative/to_object/logo"
+                             tal:define="logo representative/to_object/logo"
+                             tal:attributes="src
+                                string:${context/@@plone_portal_state/portal_url}/++resource++sinar.representatives/${logo}-200px.png"/>
+     
+
+                            <h3 tal:content="representative/to_object/title"></h3>
+
+                                <div tal:repeat="blacklist representative/to_object/Subject"
+                                    style="padding-bottom: 5px;">
+                                    <span tal:condition="python: blacklist=='blacklisted'"
+                                         style="background:#000000;
+                                         color:white;
+                                         padding:0.2em;">
+                                    Disenarai Hitam
+                                    </span>
+                                 </div>
+                                 <div tal:repeat="blacklist
+                                         representative/to_object/Subject"
+                                    style="padding-bottom: 5px;">
+                                                <span tal:condition="python:
+                                    blacklist=='fakecv'"
+                                         style="background:red;
+                                         color:white;
+                                         padding:0.2em;">
+                                   Ijazah Tiruan / CV Tidak Benar
+                                    </span>
+                                 </div>
+
+
+
+                        <p
+                            tal:content="representative/to_object/description"></p>
+
+                        <a href="" tal:attributes="href
+                        representative/to_object/absolute_url">
+                        <p>Maklumat lanjut</p>
+                        </a>
+
+                    </div>
+                 </div>
+            </div>
+
+            <hr />
+            <p class="discreet">
+               Ini adalah maklumat yang diketahui setakat ini
+            </p>
+
+            <p class="callout">
+            Jika calon salah atau calon yang bertanding tidak dipaparkan
+            di sini, sila hubungi kami melalui email
+            <a href="mailto:ge14@sinarproject">ge14@sinarproject.org</a> atau tweet dan tag @sinarproject dengan
+            kerusi, nama calon.
+            </p>
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
