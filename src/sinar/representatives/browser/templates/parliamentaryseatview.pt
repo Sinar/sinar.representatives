@@ -35,17 +35,6 @@
                     <div class="representative-card"
                         >
                         
-                        <img 
-                        tal:condition="representative/to_object/image"
-                        tal:attributes="src
-                        string:${representative/to_object/absolute_url}/@@images/image/thumb"
-                        />
-
-                        <img 
-                        tal:condition="not:
-                        representative/to_object/image"
-                        src="defaultUser.png" width="128px" />
-
                     <img 
                          src=""
                          tal:condition="representative/to_object/logo"
@@ -77,8 +66,17 @@
                                     </span>
                                  </div>
 
- 
- 
+                        <img 
+                        tal:condition="representative/to_object/image"
+                        tal:attributes="src
+                        string:${representative/to_object/absolute_url}/@@images/image/thumb"
+                        />
+
+                        <img 
+                        tal:condition="not:
+                        representative/to_object/image"
+                        src="defaultUser.png" width="128px" />
+
                         <!-- resources bar -->
 
                         <p tal:content="representative/to_object/description"></p>
