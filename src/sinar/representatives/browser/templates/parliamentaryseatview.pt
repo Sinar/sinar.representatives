@@ -25,8 +25,8 @@
 
             <div tal:condition="context/representative">
 
-                <h3>Calon-Calon</h3>
-                <p class="documentDescription">Calon-calon yang diketahui untuk kerusi ini</p>
+                <h3>Wakil Rakyat<h3>
+                <p class="documentDescription">Wakil Rakyat untuk kerusi ini</p>
 
 
                 <div tal:repeat="representative context/representative">
