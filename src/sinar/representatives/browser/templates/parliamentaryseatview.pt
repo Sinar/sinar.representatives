@@ -39,6 +39,25 @@
 
                         <h3 tal:content="representative/to_object/title"></h3>
 
+
+                        <img 
+                        tal:condition="representative/to_object/image"
+                        tal:attributes="src
+                        string:${representative/to_object/absolute_url}/@@images/image/thumb"
+                        />
+
+                        <img 
+                        tal:condition="not:
+                        representative/to_object/image"
+                        src="defaultUser.png" width="128px" />
+
+                       <img 
+                         src=""
+                         tal:condition="representative/to_object/logo"
+                         tal:define="logo representative/to_object/logo"
+                         tal:attributes="src
+                            string:${context/@@plone_portal_state/portal_url}/++resource++sinar.representatives/${logo}-200px.png"/>
+ 
                             <div tal:repeat="blacklist representative/to_object/Subject"
                                 style="padding-bottom: 5px;">
                                 <span tal:condition="python: blacklist=='blacklisted'"
@@ -60,24 +79,6 @@
                                     </span>
                                  </div>
 
-                        <img 
-                        tal:condition="representative/to_object/image"
-                        tal:attributes="src
-                        string:${representative/to_object/absolute_url}/@@images/image/thumb"
-                        />
-
-                        <img 
-                        tal:condition="not:
-                        representative/to_object/image"
-                        src="defaultUser.png" width="128px" />
-
-                       <img 
-                         src=""
-                         tal:condition="representative/to_object/logo"
-                         tal:define="logo representative/to_object/logo"
-                         tal:attributes="src
-                            string:${context/@@plone_portal_state/portal_url}/++resource++sinar.representatives/${logo}-200px.png"/>
- 
 
                         <!-- resources bar -->
 
