@@ -37,12 +37,32 @@
 
             <div tal:condition="context/representative">
 
-                <h3>Calon-Calon</h3>
-                <p class="documentDescription">Calon-calon yang diketahui untuk kerusi ini</p>
+                <h3>Ahli Dewan Undangan Negeri (ADUN)</h3>
 
                 <div tal:repeat="representative context/representative">
                     
                     <div class="representative-card">
+
+                        <h3 tal:content="representative/to_object/title"></h3>
+
+                            <div tal:repeat="blacklist representative/to_object/Subject"
+                                style="padding-bottom: 5px;">
+                                <span tal:condition="python: blacklist=='blacklisted'"
+                                     style="background:#000000;
+                                     color:white;
+                                     padding:0.2em;">
+                                Disenarai Hitam
+                                </span>
+                             </div>
+                             <div tal:repeat="blacklist representative/to_object/Subject"
+                                style="padding-bottom: 5px;">
+                                            <span tal:condition="python: blacklist=='fakecv'"
+                                     style="background:red;
+                                     color:white;
+                                     padding:0.2em;">
+                               Ijazah Tiruan / CV Tidak Benar
+                                </span>
+                             </div>
 
                         <img 
                             tal:condition="representative/to_object/image"
@@ -51,46 +71,18 @@
                             />
 
                         <img 
-                        tal:condition="not:
-                        representative/to_object/image"
-                        src="defaultUser.png" width="128px" />
+                            tal:condition="not:
+                            representative/to_object/image"
+                            src="defaultUser.png" width="128px" />
 
                       
-                        <img 
-                             src=""
+                        <img src=""
                              tal:condition="representative/to_object/logo"
                              tal:define="logo representative/to_object/logo"
                              tal:attributes="src
                                 string:${context/@@plone_portal_state/portal_url}/++resource++sinar.representatives/${logo}-200px.png"/>
      
-
-                            <h3 tal:content="representative/to_object/title"></h3>
-
-                                <div tal:repeat="blacklist representative/to_object/Subject"
-                                    style="padding-bottom: 5px;">
-                                    <span tal:condition="python: blacklist=='blacklisted'"
-                                         style="background:#000000;
-                                         color:white;
-                                         padding:0.2em;">
-                                    Disenarai Hitam
-                                    </span>
-                                 </div>
-                                 <div tal:repeat="blacklist
-                                         representative/to_object/Subject"
-                                    style="padding-bottom: 5px;">
-                                                <span tal:condition="python:
-                                    blacklist=='fakecv'"
-                                         style="background:red;
-                                         color:white;
-                                         padding:0.2em;">
-                                   Ijazah Tiruan / CV Tidak Benar
-                                    </span>
-                                 </div>
-
-
-
-                        <p
-                            tal:content="representative/to_object/description"></p>
+                        <p tal:content="representative/to_object/description"></p>
 
                         <a href="" tal:attributes="href
                         representative/to_object/absolute_url">

@@ -32,13 +32,9 @@
                 <div tal:repeat="representative context/representative">
 
                    
-                    <div class="representative-card"
-                        >
-                        
-            
+                    <div class="representative-card">
 
                         <h3 tal:content="representative/to_object/title"></h3>
-
 
                         <img 
                         tal:condition="representative/to_object/image"
