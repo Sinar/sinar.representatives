@@ -51,7 +51,7 @@
 
 
 
-        <h3>Bertanding di kerusi</h3>
+        <h3>Wakil Rakyat untuk kerusi</h3>
         <ul>
             <li tal:repeat="seat view/seats">
                 <a href="" tal:attributes="href seat/absolute_url">
@@ -80,7 +80,7 @@
 
         <p tal:content="structure view/w/political_party/render"></p>
         <p  tal:condition="not: context/political_party">
-            Calon Bebas
+            Bebas
         </p>
         <img 
              src=""
@@ -213,7 +213,7 @@
             </tal:listing>
 
             <p tal:condition="not: view/blacklist_criteria"> 
-               Calon ini
+               Wakil Rakyat ini
                tidak ada sejarah kes korupsi, salah guna kuasa
                atau ucapan benci.</p>
 
@@ -227,13 +227,13 @@
             </p>
 
             <p class="callout">
-            Jika ada maklumat calon atau pembetulan boleh isi 
+            Jika ada maklumat wakil rakyat atau pembetulan boleh isi 
             <a
                href="https://docs.google.com/forms/d/e/1FAIpQLSfXZXyEumZB2pMRw-OU6RMqISCN6d6Z4WxuCKiOnfcEmipZwg/viewform">
                 borang online ini </a> atau
             sila hubungi kami melalui email
-            <a href="mailto:ge14@sinarproject">ge14@sinarproject.org</a> atau tweet dan tag @sinarproject dengan
-            kerusi, nama calon.
+            <a href="mailto:wakilrakyat@sinarproject">wakilrakyat@sinarproject.org</a> atau tweet dan tag @sinarproject dengan
+            kerusi, nama Wakil Rakyat.
             </p>
 
 
