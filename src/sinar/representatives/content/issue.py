@@ -26,6 +26,11 @@ class IIssue(model.Schema):
         required=False,
         )
 
+    source = RichText(
+        title=_(u'Sumber'),
+        required=False
+    )
+
     # directives.widget(level=RadioFieldWidget)
     # level = schema.Choice(
     #     title=_(u'Sponsoring Level'),

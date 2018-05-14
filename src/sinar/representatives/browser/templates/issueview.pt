@@ -16,7 +16,6 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
-        <div tal:content="structure view/w/text/output| nothing" />
         <div tal:content="structure context/text/output | nothing" />
 
 
@@ -46,7 +45,8 @@
             </div>
 
 
-
+    <h4 class="discreet" tal:content="structure view/w/source/label | nothing" />
+    <div tal:content="structure context/source/output | nothing" />
 
 
     </tal:main-macro>
