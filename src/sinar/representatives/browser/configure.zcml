@@ -46,6 +46,12 @@
       permission="zope2.View"
       />
 
-
+  <browser:page
+      name="view"
+      for="sinar.representatives.content.issue.IIssue"
+      class="sinar.representatives.content.issue.IssueView"
+      template="templates/issueview.pt"
+      permission="zope2.View"
+      />
 
 </configure>
