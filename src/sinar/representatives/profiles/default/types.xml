@@ -8,4 +8,5 @@
   <object meta_type="Dexterity FTI" name="Blacklist Criteria"/>
   <object meta_type="Dexterity FTI" name="CV"/>
   <object meta_type="Dexterity FTI" name="Campaign Materials"/>
+  <object meta_type="Dexterity FTI" name="Issue"/>
 </object>
