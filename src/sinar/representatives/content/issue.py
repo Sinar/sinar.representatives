@@ -12,6 +12,7 @@ from zope.interface import implementer
 from plone.dexterity.browser.view import DefaultView
 from sinar.representatives import _
 
+
 class IIssue(model.Schema):
     """ Marker interface and Dexterity Python Schema for Issue
     """
@@ -70,6 +71,7 @@ class IIssue(model.Schema):
 class IssueView(DefaultView):
     """
     """
+
 
 @implementer(IIssue)
 class Issue(Item):
