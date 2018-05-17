@@ -217,6 +217,28 @@
                tidak ada sejarah kes korupsi, salah guna kuasa
                atau ucapan benci.</p>
 
+        <h3>Pendapat mengenai isu-isu</h3>
+
+        <h4 tal:condition="view/issues_supporting">Menyokong</h4>
+        <ul>
+            <li tal:repeat="issue view/issues_supporting">
+                <a href="" tal:attributes="href issue/absolute_url">
+                <span tal:content="issue/title">Issue</span>
+                </a>
+           </li>
+        </ul>
+
+        <h4 tal:condition="view/issues_against">Membantah</h4>
+        <ul>
+            <li tal:repeat="issue view/issues_against">
+                <a href="" tal:attributes="href issue/absolute_url">
+                    <span tal:content="issue/title">Issue</span>
+                </a>
+           </li>
+        </ul>
+
+
+
         <h3>Maklumat Lanjut</h3>
 
         <div tal:content="structure context/text/output | nothing" />

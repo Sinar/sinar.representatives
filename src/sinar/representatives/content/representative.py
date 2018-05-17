@@ -204,21 +204,63 @@ class RepresentativeView(DefaultView):
 
         result = []
 
-        try:
+        for rel in catalog.findRelations(
+                    dict(to_id=intids.getId(aq_inner(source_object)),
+                         from_attribute=attribute_name)
+                ):
+            obj = intids.queryObject(rel.from_id)
 
-            for rel in catalog.findRelations(
-                        dict(to_id=intids.getId(aq_inner(source_object)),
-                             from_attribute=attribute_name)
-                    ):
-                obj = intids.queryObject(rel.from_id)
+            if obj is not None and checkPermission('zope2.View', obj):
+                result.append(obj)
 
-                if obj is not None and checkPermission('zope2.View', obj):
-                    result.append(obj)
+        return result
 
-            return result
 
-        except:
-            pass
+    def issues_supporting(self):
+        """
+        Return back references from source object on specified attribute_name
+        """
+        catalog = getUtility(ICatalog)
+        intids = getUtility(IIntIds)
+
+        source_object = self.context
+        attribute_name = 'supporting'
+
+        result = []
+
+        for rel in catalog.findRelations(
+                    dict(to_id=intids.getId(aq_inner(source_object)),
+                         from_attribute=attribute_name)
+                ):
+            obj = intids.queryObject(rel.from_id)
+
+            if obj is not None and checkPermission('zope2.View', obj):
+                result.append(obj)
+
+        return result
+
+    def issues_against(self):
+        """
+        Return back references from source object on specified attribute_name
+        """
+        catalog = getUtility(ICatalog)
+        intids = getUtility(IIntIds)
+
+        source_object = self.context
+        attribute_name = 'against'
+
+        result = []
+
+        for rel in catalog.findRelations(
+                    dict(to_id=intids.getId(aq_inner(source_object)),
+                         from_attribute=attribute_name)
+                ):
+            obj = intids.queryObject(rel.from_id)
+
+            if obj is not None and checkPermission('zope2.View', obj):
+                result.append(obj)
+
+        return result
 
     # unused
     def contracts(self):
