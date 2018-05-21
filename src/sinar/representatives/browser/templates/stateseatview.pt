@@ -99,10 +99,10 @@
             </p>
 
             <p class="callout">
-            Jika calon salah atau calon yang bertanding tidak dipaparkan
+            Jika wakil rakyat salah atau tiada wakil rakyat dipaparkan
             di sini, sila hubungi kami melalui email
-            <a href="mailto:ge14@sinarproject">ge14@sinarproject.org</a> atau tweet dan tag @sinarproject dengan
-            kerusi, nama calon.
+            <a href="mailto:wakilrakyat@sinarproject">wakilrakyat@sinarproject.org</a> atau tweet dan tag @sinarproject dengan
+            kerusi.
             </p>
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
