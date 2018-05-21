@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
+        id="sinar.representatives.AddIssue"
+        title="sinar.representatives: Add Issue"
+    />
+
+        
+    <permission
         id="sinar.representatives.AddCampaignMaterials"
         title="sinar.representatives: Add CampaignMaterials"
     />

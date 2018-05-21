@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="sinar.representatives">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <h1 class="documentFirstHeading" tal:content="context/title" />
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <p class="documentDescription" tal:content="context/description" />
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+        <div tal:content="structure context/text/output | nothing" />
+
+
+        <h3 tal:condition="context/supporting" tal:content="structure view/w/supporting/label | nothing" />
+       
+            <div tal:define="reps context/supporting">
+                <ul>
+                    <li tal:repeat="rep reps">
+                    <a tal:attributes="href rep/to_object/absolute_url">
+                    <p tal:content="rep/to_object/Title"></p>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+
+        
+        <h3 tal:condition="context/against" tal:content="structure view/w/against/label | nothing" />
+
+            <div tal:define="reps context/against">
+                <ul>
+                    <li tal:repeat="rep reps">
+                    <a tal:attributes="href rep/to_object/absolute_url">
+                    <p tal:content="rep/to_object/Title"></p>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+
+
+    <h4 class="discreet" tal:content="structure view/w/source/label | nothing" />
+    <div tal:content="structure context/source/output | nothing" />
+
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
